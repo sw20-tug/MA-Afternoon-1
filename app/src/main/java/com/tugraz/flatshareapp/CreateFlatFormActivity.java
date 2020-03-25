@@ -6,16 +6,26 @@ import android.widget.EditText;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tugraz.flatshareapp.database.Models.Flat;
+import com.tugraz.flatshareapp.database.Repository;
+
+import java.util.List;
+
 
 public class CreateFlatFormActivity extends AppCompatActivity {
 
     EditText editFlatName, editStreetName, editStreetNumber, editCity, editCountry;
     Button buttonCreateFlat;
 
+    Repository dbExecutor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_flat_form);
+
+        dbExecutor = new Repository(getApplication());
+
 
         editFlatName  = (EditText) findViewById(R.id.editFlatName);
         editStreetName = (EditText) findViewById(R.id.editStreetName);
@@ -30,9 +40,12 @@ public class CreateFlatFormActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
                 String flatName = editFlatName.getText().toString();
                 String streetName = editStreetName.getText().toString();
+                String streetNumber = editStreetNumber.getText().toString();
+                String city = editCity.getText().toString();
+                String country = editCountry.getText().toString();
+                dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country));
             }
         });
         }
