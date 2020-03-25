@@ -1,5 +1,20 @@
 <resources>
+    <!--  General  -->
     <string name="app_name">FlatShareApp</string>
     <string name="street_name">Street name</string>
     <string name="fill_out_data_about_your_flat">Fill out data about your FLAT</string>
+
+    <!--  Activity Roommates  -->
+    <string name="roommates_title">Roommates</string>
+    <string name="roommates_add">+</string>
+    <string name="roommates_placeholder">Test Name</string>
+
+    <!--  Fragment Roommates Detail  -->
+    <string name="roommates_detail_title">Details</string>
+    <string name="roommates_detail_first_name">First Name:</string>
+    <string name="roommates_detail_last_name">Last Name:</string>
+    <string name="roommates_detail_birthday">Birthday:</string>
+    <string name="roommates_detail_roommate_since">Roommate Since:</string>
+    <string name="roommates_detail_edit">Edit</string>
+    <string name="roommates_detail_save">Save</string>
 </resources>
