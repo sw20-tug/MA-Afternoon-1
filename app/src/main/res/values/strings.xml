@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FlatShareApp</string>
+    <string name="street_name">Street name</string>
+    <string name="fill_out_data_about_your_flat">Fill out data about your FLAT</string>
 </resources>
