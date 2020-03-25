@@ -3,6 +3,16 @@
     <string name="app_name">FlatShareApp</string>
     <string name="street_name">Street name</string>
     <string name="fill_out_data_about_your_flat">Fill out data about your FLAT</string>
+    
+    <!-- Flat Overview -->
+    <string name="flat_name">Flat Name</string>
+    <string name="stree_number">Street Number</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="room_mates">Roommates</string>
+    <string name="cleaning_schedule">Cleaning Schedule</string>
+    <string name="shopping_list">Shopping List</string>
+    <string name="financing">Financing</string>
 
     <!--  Activity Roommates  -->
     <string name="roommates_title">Roommates</string>
@@ -17,4 +27,5 @@
     <string name="roommates_detail_roommate_since">Roommate Since:</string>
     <string name="roommates_detail_edit">Edit</string>
     <string name="roommates_detail_save">Save</string>
+
 </resources>
