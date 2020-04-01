@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".OverviewActivity">
+        </activity>
+        <activity android:name=".RoommatesActivity" />
+        <activity android:name=".ShoppingListActivity" />
+        <activity android:name=".CleaningScheduleActivity" />
     </application>
 
 </manifest>
