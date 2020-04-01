@@ -12,63 +12,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/street_name"
+        android:hint="@string/create_flat_street_name"
         android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editFlatName"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="332dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Country"
+        android:hint="@string/create_flat_country"
         android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editCity"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editFlatName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Flat Name"
+        android:hint="@string/create_flat_name"
         android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/fillOutData"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="City"
+        android:hint="@string/create_flat_city"
+        android:importantForAutofill="no"
         android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editStreetNumber" />
 
     <TextView
         android:id="@+id/fillOutData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
         android:layout_marginTop="60dp"
-        android:text="@string/fill_out_data_about_your_flat"
-        android:textSize="16dp"
+        android:text="@string/create_flat_title"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,14 +75,14 @@
         android:id="@+id/editStreetNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Street number"
+        android:hint="@string/create_flat_street_name"
         android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editStreetName"
+        android:importantForAutofill="no" />
 
 
     <Button
@@ -91,10 +90,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginRight="168dp"
-        android:text="Create Flat"
+        android:text="@string/create_flat_create"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCountry" />
 
 

@@ -28,4 +28,30 @@
     <string name="roommates_detail_edit">Edit</string>
     <string name="roommates_detail_save">Save</string>
 
+    <!--  Activity Create Flat  -->
+    <string name="create_flat_title">Fill out data about your FLAT</string>
+    <string name="create_flat_name">Flat Name</string>
+    <string name="create_flat_street_name">Street Name</string>
+    <string name="create_flat_street_number">Street Number</string>
+    <string name="create_flat_city">City</string>
+    <string name="create_flat_country">Country</string>
+    <string name="create_flat_create">Create Flat</string>
+
+    <!--  Activity Cleaning  -->
+    <string name="cleaning_title">Cleaning Schedule</string>
+    <string name="cleaning_add">+</string>
+    <string name="cleaning_done">Done</string>
+    <string name="cleaning_roommate_placeholder">Roommate</string>
+
+    <!--  Fragment Cleaning Edit  -->
+    <string name="cleaning_edit_title">Cleaning Job</string>
+    <string name="cleaning_edit_date_frequency">Frequency</string>
+    <string name="cleaning_edit_date_frequency_weekly">Weekly</string>
+    <string name="cleaning_edit_date_frequency_monthly">Monthly</string>
+    <string name="cleaning_edit_description_title">Description</string>
+    <string name="cleaning_edit_offset_title">Offset</string>
+    <string name="cleaning_edit_assigned">Assigned Roommate</string>
+    <string name="cleaning_edit_save">Save</string>
+
+
 </resources>
