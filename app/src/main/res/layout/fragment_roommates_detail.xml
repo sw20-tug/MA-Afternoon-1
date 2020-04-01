@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_roommates_detail_title"
+        android:id="@+id/roommates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -37,7 +37,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/roommates_detail_first_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_roommates_detail_title" />
+        app:layout_constraintTop_toBottomOf="@+id/roommates" />
 
     <EditText
         android:id="@+id/input_rommates_detail_first_name"
