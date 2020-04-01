@@ -25,43 +25,43 @@ public class CreateFlatFormActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_flat_form);
-        dbExecutor = new Repository(getApplication());
-
-
-        editFlatName  = (EditText) findViewById(R.id.editFlatName);
-        editStreetName = (EditText) findViewById(R.id.editStreetName);
-        editStreetNumber = (EditText) findViewById(R.id.editStreetNumber);
-        editCity = (EditText) findViewById(R.id.editCity);
-        editCountry = (EditText) findViewById(R.id.editCountry);
-        buttonCreateFlat = (Button) findViewById(R.id.buttonCreateFlat);
-
-
-
-        buttonCreateFlat.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String flatName = editFlatName.getText().toString();
-                String streetName = editStreetName.getText().toString();
-                String streetNumber = editStreetNumber.getText().toString();
-                String city = editCity.getText().toString();
-                String country = editCountry.getText().toString();
-                // TODO handle active flat
-                dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country, true));
-            }
-        });
-
-        // TODO migrate that to overview
-        try {
-            List<Flat> flats = dbExecutor.getAllFlats();
-            // if flat found fill in fields
-            if (!flats.isEmpty()) {
-                fillFormWithFlatInfo(flats.get(0));
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "onResume: ", e);
-        }
+        setContentView(R.layout.fragment_flat_list_detail);
+//        dbExecutor = new Repository(getApplication());
+//
+//
+//        editFlatName  = (EditText) findViewById(R.id.editFlatName);
+//        editStreetName = (EditText) findViewById(R.id.editStreetName);
+//        editStreetNumber = (EditText) findViewById(R.id.editStreetNumber);
+//        editCity = (EditText) findViewById(R.id.editCity);
+//        editCountry = (EditText) findViewById(R.id.editCountry);
+//        buttonCreateFlat = (Button) findViewById(R.id.buttonCreateFlat);
+//
+//
+//
+//        buttonCreateFlat.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                String flatName = editFlatName.getText().toString();
+//                String streetName = editStreetName.getText().toString();
+//                String streetNumber = editStreetNumber.getText().toString();
+//                String city = editCity.getText().toString();
+//                String country = editCountry.getText().toString();
+//                // TODO handle active flat
+//                dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country, true));
+//            }
+//        });
+//
+//        // TODO migrate that to overview
+//        try {
+//            List<Flat> flats = dbExecutor.getAllFlats();
+//            // if flat found fill in fields
+//            if (!flats.isEmpty()) {
+//                fillFormWithFlatInfo(flats.get(0));
+//            }
+//        } catch (Exception e) {
+//            Log.e(TAG, "onResume: ", e);
+//        }
 
     }
 
