@@ -14,6 +14,20 @@
     <string name="shopping_list">Shopping List</string>
     <string name="financing">Financing</string>
 
+    <!--  Activity Shopping list  -->
+    <string name="shopping_list_title">Shopping list</string>
+    <string name="shopping_list_entry_product_name">Test product name</string>
+    <string name="shopping_list_add">+</string>
+    <string name="shopping_list_completed">Done</string>
+
+    <!-- Shopping List -->
+    <string name="shopping_list_detail_title">Details</string>
+    <string name="shopping_list_product_name">Product name</string>
+    <string name="shopping_list_description">Description</string>
+    <string name="shopping_list_save">Save</string>
+    <string name="shopping_list_edit">Edit</string>
+
+
     <!--  Activity Roommates  -->
     <string name="roommates_title">Roommates</string>
     <string name="roommates_add">+</string>
