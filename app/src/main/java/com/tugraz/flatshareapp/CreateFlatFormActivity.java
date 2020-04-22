@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tugraz.flatshareapp.database.Models.Flat;
-import com.tugraz.flatshareapp.database.Repository;
+import com.tugraz.flatshareapp.database.FlatRepository;
 
 import java.util.List;
 
@@ -20,13 +20,13 @@ public class CreateFlatFormActivity extends AppCompatActivity {
     EditText editFlatName, editStreetName, editStreetNumber, editCity, editCountry;
     Button buttonCreateFlat;
 
-    Repository dbExecutor;
+    FlatRepository dbExecutor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_flat_form);
-        dbExecutor = new Repository(getApplication());
+        dbExecutor = new FlatRepository(getApplication());
 
 
         editFlatName  = (EditText) findViewById(R.id.editFlatName);

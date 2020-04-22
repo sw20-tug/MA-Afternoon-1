@@ -7,14 +7,13 @@ import android.util.Log;
 import com.tugraz.flatshareapp.database.Models.Flat;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
-public class Repository {
+public class FlatRepository {
 
-    private static final String TAG = Repository.class.getSimpleName();
+    private static final String TAG = FlatRepository.class.getSimpleName();
     private FlatDao flatDao;
 
-    public Repository(Application application) {
+    public FlatRepository(Application application) {
         AppDatabase database = AppDatabase.getInstance(application);
         flatDao = database.flatDao();
        // flats = flatDao.getAllFlats();
