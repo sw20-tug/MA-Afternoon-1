@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class OverviewActivity extends AppCompatActivity {
 
-    Button btn_room_mates, btn_shopping_list, btn_cleaning_schedule, btn_financing;
+    Button btn_room_mates, btn_shopping_list, btn_cleaning_schedule, btn_financing, btn_organize;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class OverviewActivity extends AppCompatActivity {
         btn_shopping_list = (Button) findViewById(R.id.btn_shopping_list);
         btn_cleaning_schedule = (Button) findViewById(R.id.btn_cleaning_schedule);
         btn_financing = (Button) findViewById(R.id.btn_financing);
+        btn_organize = (Button) findViewById(R.id.btn_organizeflat);
 
         btn_room_mates.setOnClickListener(new View.OnClickListener() {
 
@@ -47,6 +48,14 @@ public class OverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switchActivity(CleaningScheduleActivity.class);
+            }
+        });
+
+        btn_organize.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                switchActivity(FlatListActivity.class);
             }
         });
     }

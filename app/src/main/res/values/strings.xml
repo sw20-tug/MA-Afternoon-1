@@ -6,6 +6,7 @@
     
     <!-- Flat Overview -->
     <string name="flat_name">Flat Name</string>
+    <string name="organize_flat">Organize</string>
     <string name="stree_number">Street Number</string>
     <string name="city">City</string>
     <string name="country">Country</string>
