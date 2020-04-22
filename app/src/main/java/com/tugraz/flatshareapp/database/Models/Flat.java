@@ -14,13 +14,15 @@ public class Flat {
     private String streetNumber;
     private String city;
     private String country;
+    private Boolean active;
 
-    public Flat(String name, String streetName, String streetNumber, String city, String country) {
+    public Flat(String name, String streetName, String streetNumber, String city, String country, Boolean active) {
         this.name = name;
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.city = city;
         this.country = country;
+        this.active = active;
     }
 
     public void setId(int id) {
@@ -55,5 +57,9 @@ public class Flat {
 
     public String getCountry() {
         return country;
+    }
+
+    public Boolean getActive() {
+        return active;
     }
 }

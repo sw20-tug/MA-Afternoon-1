@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.tugraz.flatshareapp.database.Models.Flat;
 
-@Database(entities = {Flat.class}, version = 1)
+@Database(entities = {Flat.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
@@ -22,6 +22,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "flat_database")
                     .addCallback(roomCallback)
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return instance;
@@ -44,9 +45,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            flatDao.insert(new Flat("name1", "streetName1", "streetNumber1", "city1", "country1"));
-            flatDao.insert(new Flat("name2", "streetName2", "streetNumber2", "city2", "country2"));
-            flatDao.insert(new Flat("name3", "streetName3", "streetNumber3", "city3", "country3"));
+            flatDao.insert(new Flat("name1", "streetName1", "streetNumber1", "city1", "country1", true));
+            flatDao.insert(new Flat("name2", "streetName2", "streetNumber2", "city2", "country2",false));
+            flatDao.insert(new Flat("name3", "streetName3", "streetNumber3", "city3", "country3", false));
             return null;
         }
     }

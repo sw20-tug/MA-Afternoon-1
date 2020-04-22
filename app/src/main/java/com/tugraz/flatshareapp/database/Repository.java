@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class Repository {
+
+    private static final String TAG = Repository.class.getSimpleName();
     private FlatDao flatDao;
 
     public Repository(Application application) {
@@ -48,7 +50,10 @@ public class Repository {
 
         @Override
         protected List<Flat> doInBackground(Void... voids) {
-            return flatDao.getAllFlats();
+            Log.e(TAG, "doInBackground: getting flats", null);
+            List<Flat> flats = flatDao.getAllFlats();
+            Log.e(TAG, flats.toString(), null);
+            return flats;
         }
     }
 
