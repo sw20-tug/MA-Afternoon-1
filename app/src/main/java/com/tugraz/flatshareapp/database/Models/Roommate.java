@@ -12,15 +12,15 @@ public class Roommate {
     private int id;
     private String name;
     private String lastName;
-    private Date roomateSince;
-    private Date birthday;
+    private long roomateSince;
+    private long birthday;
     private int flatId;
 
     public Roommate(String name, String lastName, Date roomateSince, Date birthday, int flatId) {
         this.name = name;
         this.lastName = lastName;
-        this.roomateSince = roomateSince;
-        this.birthday = birthday;
+        this.roomateSince = roomateSince.getTime();
+        this.birthday = birthday.getTime();
         this.flatId = flatId;
     }
 
@@ -32,6 +32,7 @@ public class Roommate {
         return id;
     }
 
+    public void setId(int id) {this.id = id; }
 
     public String getName() {
         return name;
@@ -49,21 +50,15 @@ public class Roommate {
         this.lastName = lastName;
     }
 
-    public Date getRoomateSince() {
-        return roomateSince;
-    }
+    public long getRoomateSince() { return roomateSince; }
 
-    public void setRoomateSince(Date roomateSince) {
+    public void setRoomateSince(long roomateSince) {
         this.roomateSince = roomateSince;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
+    public long getBirthday() { return birthday; }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
+    public void setBirthday(long birthday) { this.birthday = birthday; }
 
     public int getFlatId() {
         return flatId;
