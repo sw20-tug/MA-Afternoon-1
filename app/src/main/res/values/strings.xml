@@ -3,7 +3,7 @@
     <string name="app_name">FlatShareApp</string>
     <string name="street_name">Street name</string>
     <string name="fill_out_data_about_your_flat">Fill out data about your FLAT</string>
-    
+
     <!-- Flat Overview -->
     <string name="flat_name">Flat Name</string>
     <string name="organize_flat">Organize</string>
@@ -80,6 +80,9 @@
     <string name="cleaning_edit_offset_title">Offset</string>
     <string name="cleaning_edit_assigned">Assigned Roommate</string>
     <string name="cleaning_edit_save">Save</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
