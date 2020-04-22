@@ -28,6 +28,7 @@ public class Cleaning {
         return id;
     }
 
+    public void setId(int id) {this.id = id; }
 
     public boolean isWeekly() {
         return weekly;
