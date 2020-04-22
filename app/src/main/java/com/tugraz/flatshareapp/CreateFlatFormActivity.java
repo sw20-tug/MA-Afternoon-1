@@ -1,10 +1,13 @@
 package com.tugraz.flatshareapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
+import android.widget.Switch;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tugraz.flatshareapp.database.Models.Flat;
@@ -49,6 +52,7 @@ public class CreateFlatFormActivity extends AppCompatActivity {
                 String country = editCountry.getText().toString();
                 // TODO handle active flat
                 dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country, true));
+                switchActivity(OverviewActivity.class);
             }
         });
 
@@ -77,6 +81,11 @@ public class CreateFlatFormActivity extends AppCompatActivity {
         editCity.setText(flat.getCity());
         editCountry.setText(flat.getCountry());
         buttonCreateFlat.setText("Edit");
+    }
+
+    public void switchActivity(Class activity) {
+        Intent intent = new Intent(this, activity);
+        startActivity(intent);
     }
 }
 
