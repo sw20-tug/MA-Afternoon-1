@@ -48,7 +48,7 @@ public class CreateFlatFormActivity extends AppCompatActivity {
                 String city = editCity.getText().toString();
                 String country = editCountry.getText().toString();
                 // TODO handle active flat
-                dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country/*, true*/));
+                dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country, true));
             }
         });
 
