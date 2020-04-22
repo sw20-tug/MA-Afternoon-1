@@ -91,4 +91,21 @@
         app:layout_constraintEnd_toStartOf="@+id/flat_list_entry_flat_add"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--    <fragment-->
+<!--        android:id="@+id/flat_list_fragment"-->
+<!--        android:name="com.tugraz.flatshareapp.FlatListDetailFragment"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:layout="@layout/fragment_flat_list_detail" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
