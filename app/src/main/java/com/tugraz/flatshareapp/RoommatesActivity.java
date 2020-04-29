@@ -19,7 +19,7 @@ public class RoommatesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roommates);
         btn_add_room_mates = (Button) findViewById(R.id.btn_roommates_add);
-        detail_frag = findViewById(R.id.detail_frag);
+//        detail_frag = findViewById(R.id.detail_frag);
         btn_add_room_mates.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
