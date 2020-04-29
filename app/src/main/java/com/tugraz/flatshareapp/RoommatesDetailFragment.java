@@ -28,7 +28,7 @@ public class RoommatesDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        view = inflater.inflate(R.layout.fragment_roommates_detail, container, false);
-       save_button = view.findViewById(R.id.btn_rommates_detail_save);
+       save_button = view.findViewById(R.id.btn_roomates_detail_save);
        save_button.setOnClickListener(new View.OnClickListener(){
            @Override
            public void onClick(View v) {

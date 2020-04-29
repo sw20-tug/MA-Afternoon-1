@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/input_shopping_list_product_name" />
 
     <Button
-        android:id="@+id/btn_rommates_detail_save"
+        android:id="@+id/btn_shopping_detail_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"

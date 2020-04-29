@@ -131,7 +131,7 @@
         tools:text="@tools:sample/date/mmddyy" />
 
     <Button
-        android:id="@+id/btn_rommates_detail_save"
+        android:id="@+id/btn_roomates_detail_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
