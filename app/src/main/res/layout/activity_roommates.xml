@@ -16,13 +16,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <fragment
-            android:id="@+id/detail_frag"
-            android:name="com.tugraz.flatshareapp.RoommatesDetailFragment"
+        <FrameLayout
+            android:id="@+id/detail_fragment_container"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            tools:layout="@layout/fragment_roommates_detail" />
+            android:layout_height="wrap_content">
+
+        </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
