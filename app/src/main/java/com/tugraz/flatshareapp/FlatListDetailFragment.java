@@ -23,13 +23,13 @@ public class FlatListDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_flat_list_detail, null);
 
-        flat_save  = (Button) view.findViewById(R.id.btn_rommates_detail_save);
+        flat_save  = (Button) view.findViewById(R.id.btn_flat_detail_save);
 
         flat_save.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                getActivity().getFragmentManager().popBackStack();
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 
