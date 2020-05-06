@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.tugraz.flatshareapp.database.Models.Roommate;
 import com.tugraz.flatshareapp.database.RoommateRepository;
+import com.tugraz.flatshareapp.utility.Persistence;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -100,7 +101,7 @@ public class RoommatesDetailFragment extends Fragment {
                if(birthday_date != null || roommate_since_date != null) {
                    //TODO: change faltID to the actual flatID
                    if(!edit && roommate == null)
-                    roommate_repository.insert(new Roommate(first_name, last_name, birthday_date, roommate_since_date, 1));
+                    roommate_repository.insert(new Roommate(first_name, last_name, birthday_date, roommate_since_date, Persistence.Instance().getActiveFlatID()));
                    else {
                        roommate.setName(first_name);
                        roommate.setLastName(last_name);

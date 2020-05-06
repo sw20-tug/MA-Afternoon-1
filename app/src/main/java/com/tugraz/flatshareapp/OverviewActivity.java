@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tugraz.flatshareapp.database.FlatRepository;
 import com.tugraz.flatshareapp.database.Models.Flat;
+import com.tugraz.flatshareapp.utility.Persistence;
 
 import java.util.List;
 
@@ -25,6 +26,16 @@ public class OverviewActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // initialise active flat persistance
+        try {
+            for(Flat flat: dbExecutor.getAllFlats()) {
+                if(flat.getActive()) {
+                    Persistence.Instance().setActiveFlatID(flat.getId());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         dbExecutor = new FlatRepository(getApplication());
         // Set layout
