@@ -29,6 +29,8 @@ public class Flat {
         this.id = id;
     }
 
+    public void  setActive(boolean active) {this.active = active; }
+
     @NonNull
     @Override
     public String toString() {
