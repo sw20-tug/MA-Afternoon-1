@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
+    <TextView
         android:id="@+id/flat_list_flat_active"
         android:layout_width="91dp"
         android:layout_height="30dp"
