@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.tugraz.flatshareapp.database.Models.ShoppingList;
 import com.tugraz.flatshareapp.database.ShoppingListRepository;
+import com.tugraz.flatshareapp.utility.Persistence;
 
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class ShoppingListDetailFragment extends Fragment {
 
                 if(prodCompleted.isChecked())
                     prodStatus = true;
-                ShoppingList updateShoppingList = new ShoppingList(prodName, prodDesc, prodStatus, 1);
+                ShoppingList updateShoppingList = new ShoppingList(prodName, prodDesc, prodStatus, Persistence.Instance().getActiveFlatID());
                 if(shoppingList == null) {
                     if(!prodName.isEmpty()) {
                         shoppingListRepo.insert(updateShoppingList);
@@ -95,7 +96,7 @@ public class ShoppingListDetailFragment extends Fragment {
                 if(prodCompleted.isChecked())
                     prodStatus = true;
 
-                ShoppingList updateShoppingList = new ShoppingList(prodName, prodDesc, prodStatus, 1);
+                ShoppingList updateShoppingList = new ShoppingList(prodName, prodDesc, prodStatus, Persistence.Instance().getActiveFlatID());
                 updateShoppingList.setId(shoppingList.getId());
                 shoppingListRepo.delete(updateShoppingList);
                 getActivity().getSupportFragmentManager().popBackStack();
