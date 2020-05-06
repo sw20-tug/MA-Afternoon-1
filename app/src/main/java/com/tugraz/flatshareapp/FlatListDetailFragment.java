@@ -1,5 +1,7 @@
 package com.tugraz.flatshareapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +18,7 @@ import com.tugraz.flatshareapp.database.Models.Flat;
 
 public class FlatListDetailFragment extends Fragment {
 
-    Button flat_close, flat_save;
+    Button flat_close, flat_save, flat_delete;
 
     TextView tv_flat_name, tv_street_name, tv_street_number, tv_city, tv_country;
 
@@ -44,6 +46,7 @@ public class FlatListDetailFragment extends Fragment {
 
         flat_close  = (Button) view.findViewById(R.id.btn_flat_detail_close);
         flat_save = (Button) view.findViewById(R.id.button_flatlist_detail_edit);
+        flat_delete = (Button) view.findViewById(R.id.button_flat_list_detail_delete);
 
         tv_flat_name = (TextView) view.findViewById(R.id.input_flat_list_product_name);
         tv_street_name = (TextView) view.findViewById(R.id.input_flat_list_street_name);
@@ -99,6 +102,31 @@ public class FlatListDetailFragment extends Fragment {
                 else
                 {
                     flat_repo.update(new_flat);
+                }
+            }
+        });
+
+        flat_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(flat != null) {
+                    new AlertDialog.Builder(getContext())
+                            .setMessage(R.string.dialog_delete_flat)
+                            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    flat_repo.delete(flat);
+                                    getActivity().getSupportFragmentManager().popBackStack();
+                                }
+                            })
+                            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .create()
+                            .show();
                 }
             }
         });

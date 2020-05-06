@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tugraz.flatshareapp.database.Models.Flat;
 import com.tugraz.flatshareapp.database.FlatRepository;
+import com.tugraz.flatshareapp.utility.Persistence;
 
 import java.util.List;
 
@@ -50,9 +51,20 @@ public class CreateFlatFormActivity extends AppCompatActivity {
                 String streetNumber = editStreetNumber.getText().toString();
                 String city = editCity.getText().toString();
                 String country = editCountry.getText().toString();
-                // TODO handle active flat
                 dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country, true));
+                // TODO handle active flat
+                try {
+                    List<Flat> list = dbExecutor.getAllFlats();
+                    for (Flat flat : list ) {
+                        if(flat.getActive())
+                            Persistence.Instance().setActiveFlatID(flat.getId());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 switchActivity(OverviewActivity.class);
+
             }
         });
 
