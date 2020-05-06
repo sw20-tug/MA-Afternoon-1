@@ -69,6 +69,7 @@ public class RoommatesActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         roommate_repository.delete(roommateInv);
+                                        loadRoommateList();
                                     }
                                 })
                                 .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
