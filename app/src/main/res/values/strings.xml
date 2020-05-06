@@ -29,6 +29,8 @@
     <string name="flat_list_detail_country">Country</string>
     <string name="flat_list_detail_save">Save</string>
     <string name="flat_list_detail_close">Close</string>
+    <string name="flat_list_detail_delete">Delete</string>
+    <string name ="dialog_delete_flat">Are you sure you want to delete this flat?</string>
 
     <!--    <string name="flat_list_detail_country">Country</string>-->
 
