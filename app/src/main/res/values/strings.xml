@@ -77,6 +77,7 @@
     <string name="cleaning_add">+</string>
     <string name="cleaning_done">Done</string>
     <string name="cleaning_roommate_placeholder">Roommate</string>
+    <string name="cleaning_description_placeholder">Description</string>
 
     <!--  Fragment Cleaning Edit  -->
     <string name="cleaning_edit_title">Cleaning Job</string>
@@ -87,6 +88,8 @@
     <string name="cleaning_edit_offset_title">Offset</string>
     <string name="cleaning_edit_assigned">Assigned Roommate</string>
     <string name="cleaning_edit_save">Save</string>
+    <string name="cleaning_edit_delete">Delete</string>
+    <string name="cleaning_edit_close">Close</string>
 
     <!-- General -->
     <string name="delete">Delete</string>

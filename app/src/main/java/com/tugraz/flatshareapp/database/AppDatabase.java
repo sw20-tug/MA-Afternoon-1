@@ -14,7 +14,7 @@ import com.tugraz.flatshareapp.database.Models.Flat;
 import com.tugraz.flatshareapp.database.Models.Roommate;
 import com.tugraz.flatshareapp.database.Models.ShoppingList;
 
-@Database(entities = {Flat.class, Roommate.class, Cleaning.class, ShoppingList.class}, version = 2)
+@Database(entities = {Flat.class, Roommate.class, Cleaning.class, ShoppingList.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
