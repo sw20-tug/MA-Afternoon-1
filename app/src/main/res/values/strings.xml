@@ -1,0 +1,89 @@
+<resources>
+    <!--  General  -->
+    <string name="app_name">FlatShareApp</string>
+    <string name="street_name">Street name</string>
+    <string name="fill_out_data_about_your_flat">Fill out data about your FLAT</string>
+
+    <!-- Flat Overview -->
+    <string name="flat_name">Flat Name</string>
+    <string name="organize_flat">Organize</string>
+    <string name="stree_number">Street Number</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="room_mates">Roommates</string>
+    <string name="cleaning_schedule">Cleaning Schedule</string>
+    <string name="shopping_list">Shopping List</string>
+    <string name="financing">Financing</string>
+
+    <!--  Activity flat list  -->
+    <string name="flat_list_title">Flat list</string>
+    <string name="flat_list_entry_flat_name">Test flat name</string>
+    <string name="flat_list_entry_flat_edit">Edit</string>
+    <string name="flat_list_entry_flat_not_active">Active</string>
+
+    <!--    Flat list-->
+    <string name="flat_list_detail_title">Flat name</string>
+    <string name="flat_list_detail_street_name">Street name</string>
+    <string name="flat_list_detail_street_number">Street number</string>
+    <string name="flat_list_detail_city">City</string>
+    <string name="flat_list_detail_country">Country</string>
+<!--    <string name="flat_list_detail_country">Country</string>-->
+
+    <!--  Activity Shopping list  -->
+    <string name="shopping_list_title">Shopping list</string>
+    <string name="shopping_list_entry_product_name">Test product name</string>
+    <string name="shopping_list_add">+</string>
+    <string name="shopping_list_completed">Done</string>
+
+    <!-- Shopping List -->
+    <string name="shopping_list_detail_title">Details</string>
+    <string name="shopping_list_product_name">Product name</string>
+    <string name="shopping_list_description">Description</string>
+    <string name="shopping_list_save">Save</string>
+    <string name="shopping_list_edit">Edit</string>
+
+
+    <!--  Activity Roommates  -->
+    <string name="roommates_title">Roommates</string>
+    <string name="roommates_add">+</string>
+    <string name="roommates_placeholder">Test Name</string>
+
+    <!--  Fragment Roommates Detail  -->
+    <string name="roommates_detail_title">Details</string>
+    <string name="roommates_detail_first_name">First Name:</string>
+    <string name="roommates_detail_last_name">Last Name:</string>
+    <string name="roommates_detail_birthday">Birthday:</string>
+    <string name="roommates_detail_roommate_since">Roommate Since:</string>
+    <string name="roommates_detail_edit">Edit</string>
+    <string name="roommates_detail_save">Save</string>
+
+    <!--  Activity Create Flat  -->
+    <string name="create_flat_title">Fill out data about your FLAT</string>
+    <string name="create_flat_name">Flat Name</string>
+    <string name="create_flat_street_name">Street Name</string>
+    <string name="create_flat_street_number">Street Number</string>
+    <string name="create_flat_city">City</string>
+    <string name="create_flat_country">Country</string>
+    <string name="create_flat_create">Create Flat</string>
+
+    <!--  Activity Cleaning  -->
+    <string name="cleaning_title">Cleaning Schedule</string>
+    <string name="cleaning_add">+</string>
+    <string name="cleaning_done">Done</string>
+    <string name="cleaning_roommate_placeholder">Roommate</string>
+
+    <!--  Fragment Cleaning Edit  -->
+    <string name="cleaning_edit_title">Cleaning Job</string>
+    <string name="cleaning_edit_date_frequency">Frequency</string>
+    <string name="cleaning_edit_date_frequency_weekly">Weekly</string>
+    <string name="cleaning_edit_date_frequency_monthly">Monthly</string>
+    <string name="cleaning_edit_description_title">Description</string>
+    <string name="cleaning_edit_offset_title">Offset</string>
+    <string name="cleaning_edit_assigned">Assigned Roommate</string>
+    <string name="cleaning_edit_save">Save</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
