@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,9 +26,31 @@ public class ShoppingListActivity extends AppCompatActivity {
     Context context;
     FragmentManager fragmentManager;
     Button btn_add_shopping_list;
+    LinearLayout layoutShoppingList;
     String shoppingListName;
     Boolean shoppingListDone;
-//    List<Integer> shopping_list;
+
+    public void DisplayShoppingList(){
+        layoutShoppingList.removeAllViews();
+        try {
+            List<ShoppingList> allShoppingdata = shoppingList.getAllFlats();
+
+            for (ShoppingList shopInv : allShoppingdata) {
+
+                View view = LayoutInflater.from(context).inflate(R.layout.template_shopping_list, null);
+
+                TextView tempProdName = view.findViewById(R.id.shopping_list_template_name);
+                tempProdName.setText(shopInv.getName());
+
+                TextView tempProdStatus = view.findViewById(R.id.shopping_list_completed);
+                tempProdStatus.setEnabled(shopInv.getCompleted());
+
+                layoutShoppingList.addView(view);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +63,7 @@ public class ShoppingListActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
 
         btn_add_shopping_list  = (Button) findViewById(R.id.btn_shopping_list_add);
+        layoutShoppingList = findViewById(R.id.linear_layout_shopping_list_list);
 
 //        shopping_list = (LinearLayout) findViewById(R.id.linear_layout_flat_list_list);
 
@@ -48,28 +73,19 @@ public class ShoppingListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                ShoppingListDetailFragment fragment = new ShoppingListDetailFragment();
+                ShoppingListDetailFragment fragment = new ShoppingListDetailFragment(shoppingList);
                 fragmentTransaction.add(R.id.fragment_container, fragment);
                 fragmentTransaction.addToBackStack("").commit();
             }
         });
 
-        try {
-            List<ShoppingList> allShoppingdata = shoppingList.getAllFlats();
-
-            for (ShoppingList shopInv : allShoppingdata) {
-
-                View view = LayoutInflater.from(context).inflate(R.layout.template_shopping_list, null);
-//                view.findViewById()
-//                flat_list.addView(view);
-
-//                flat_ids.add(flatInv.getId());
-
-                shoppingListName = shopInv.getName();
-                shoppingListDone = shopInv.getCompleted();
+        fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                DisplayShoppingList();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        });
+
+        DisplayShoppingList();
     }
 }
