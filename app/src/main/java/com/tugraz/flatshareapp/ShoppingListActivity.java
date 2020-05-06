@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -35,17 +36,30 @@ public class ShoppingListActivity extends AppCompatActivity {
         try {
             List<ShoppingList> allShoppingdata = shoppingList.getAllFlats();
 
-            for (ShoppingList shopInv : allShoppingdata) {
+            for (final ShoppingList shopInv : allShoppingdata) {
 
                 View view = LayoutInflater.from(context).inflate(R.layout.template_shopping_list, null);
+                layoutShoppingList.addView(view);
 
                 TextView tempProdName = view.findViewById(R.id.shopping_list_template_name);
                 tempProdName.setText(shopInv.getName());
 
-                TextView tempProdStatus = view.findViewById(R.id.shopping_list_completed);
-                tempProdStatus.setEnabled(shopInv.getCompleted());
+                CheckBox tempProdStatus = view.findViewById(R.id.shopping_list_completed);
+                tempProdStatus.setEnabled(false);
+                tempProdStatus.setChecked(shopInv.getCompleted());
 
-                layoutShoppingList.addView(view);
+                view.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                        ShoppingListDetailFragment fragment = new ShoppingListDetailFragment(shopInv, shoppingList);
+                        fragmentTransaction.add(R.id.fragment_container, fragment);
+                        fragmentTransaction.addToBackStack("").commit();
+                    }
+                });
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,7 +87,7 @@ public class ShoppingListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                ShoppingListDetailFragment fragment = new ShoppingListDetailFragment(shoppingList);
+                ShoppingListDetailFragment fragment = new ShoppingListDetailFragment(null, shoppingList);
                 fragmentTransaction.add(R.id.fragment_container, fragment);
                 fragmentTransaction.addToBackStack("").commit();
             }
