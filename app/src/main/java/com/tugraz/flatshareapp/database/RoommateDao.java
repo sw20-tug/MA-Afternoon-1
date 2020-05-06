@@ -14,10 +14,10 @@ import java.util.List;
 public interface RoommateDao {
 
     @Insert
-    void insert(Roommate roommate);
+    long insert(Roommate roommate);
 
     @Update
-    void update(Roommate roommate);
+    int update(Roommate roommate);
 
     @Delete
     void delete(Roommate roommate);
