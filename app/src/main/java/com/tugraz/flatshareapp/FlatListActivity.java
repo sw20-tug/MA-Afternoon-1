@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 //import android.os.PersistableBundle;
 
 import androidx.annotation.Nullable;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.tugraz.flatshareapp.database.FlatRepository;
 import com.tugraz.flatshareapp.database.Models.Flat;
+import com.tugraz.flatshareapp.utility.Persistence;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +31,86 @@ public class FlatListActivity  extends FragmentActivity {
     FlatRepository flatData;
     String flatName;
     Boolean flatActive;
-    List<Integer> flat_ids = new ArrayList<>();
-
     FragmentManager fragmentManager;
     Context context;
+    List<Flat> allFlatdata;
+
+    public void LoadFlatList()
+    {
+        flat_list.removeAllViews();
+
+        try {
+            allFlatdata = flatData.getAllFlats();
+
+            for (final Flat flatInv : allFlatdata) {
+
+                View view = LayoutInflater.from(context).inflate(R.layout.template_flat_list, null);
+//                view.findViewById()
+                flat_list.addView(view);
+
+                flatName = flatInv.getName();
+                flatActive = flatInv.getActive();
+
+                TextView name = view.findViewById(R.id.flat_list_flat_name);
+                name.setText(flatInv.getName());
+
+                TextView active = view.findViewById(R.id.flat_list_flat_active);
+
+                if(flatInv.getActive())
+                {
+                    active.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    active.setVisibility(View.INVISIBLE);
+                }
+
+                view.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                        FlatListDetailFragment fragment = new FlatListDetailFragment(flatInv, flatData);
+                        fragmentTransaction.add(R.id.fragment_container, fragment);
+                        fragmentTransaction.addToBackStack("").commit();
+                    }
+                });
+
+                view.setLongClickable(true);
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+
+                    @Override
+                    public boolean onLongClick(View view) {
+
+                        int id = flatInv.getId();
+
+                        for(Flat f : allFlatdata)
+                        {
+                            if(f.getId() == id)
+                            {
+                                f.setActive(true);
+                            }
+                            else
+                            {
+                                f.setActive(false);
+                            }
+
+                            flatData.update(f);
+                        }
+
+                        Persistence.Instance().setActiveFlatID(id);
+
+                        LoadFlatList();
+
+                        return true;
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,29 +132,20 @@ public class FlatListActivity  extends FragmentActivity {
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                FlatListDetailFragment fragment = new FlatListDetailFragment();
+                FlatListDetailFragment fragment = new FlatListDetailFragment(null, flatData);
                 fragmentTransaction.add(R.id.fragment_container, fragment);
                 fragmentTransaction.addToBackStack("").commit();
             }
         });
 
-        try {
-            List<Flat> allFlatdata = flatData.getAllFlats();
-
-            for (Flat flatInv : allFlatdata) {
-
-                View view = LayoutInflater.from(context).inflate(R.layout.template_flat_list, null);
-//                view.findViewById()
-                flat_list.addView(view);
-
-                flat_ids.add(flatInv.getId());
-
-                flatName = flatInv.getName();
-                flatActive = flatInv.getActive();
+        fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                LoadFlatList();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        });
+
+        LoadFlatList();
     }
 
 
