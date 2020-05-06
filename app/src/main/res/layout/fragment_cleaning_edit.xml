@@ -17,14 +17,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/sw_freq"
+        android:id="@+id/switch_cleaning_schedule_edit_frequency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_frequency"
+        app:layout_constraintStart_toEndOf="@+id/tv_frequency"
+        app:layout_constraintTop_toTopOf="@+id/tv_frequency" />
+
+    <TextView
+        android:id="@+id/text_cleaning_schedule_edit_frequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:text="@string/cleaning_edit_date_frequency_weekly"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_cleaning_schedule_edit_frequency"
+        app:layout_constraintStart_toEndOf="@+id/switch_cleaning_schedule_edit_frequency"
+        app:layout_constraintTop_toTopOf="@+id/switch_cleaning_schedule_edit_frequency" />
 
     <TextView
         android:id="@+id/tv_frequency"
@@ -32,10 +43,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/cleaning_edit_date_frequency"
-        app:layout_constraintBottom_toBottomOf="@+id/sw_freq"
-        app:layout_constraintStart_toEndOf="@+id/sw_freq"
-        app:layout_constraintTop_toTopOf="@+id/sw_freq" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
     <EditText
         android:id="@+id/tv_description"
@@ -47,12 +58,12 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:gravity="start|top"
+        android:importantForAutofill="no"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description_title"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_description_title" />
 
     <TextView
         android:id="@+id/tv_description_title"
@@ -65,50 +76,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-    <TextView
-        android:id="@+id/tv_freq_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/cleaning_edit_date_frequency_weekly"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sw_freq" />
-
-    <EditText
-        android:id="@+id/tv_offset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:ems="10"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/cleaning_edit_offset_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_freq_text" />
-
     <Button
-        android:id="@+id/bu_save"
+        android:id="@+id/button_cleaning_schedule_edit_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:text="@string/cleaning_edit_save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_roommate" />
+        app:layout_constraintStart_toEndOf="@+id/button_cleaning_schedule_edit_delete"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_cleaning_schedule_edit_roommate" />
 
     <TextView
         android:id="@+id/tv_assigned"
@@ -116,13 +94,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:text="@string/cleaning_edit_assigned"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_offset" />
+        app:layout_constraintTop_toBottomOf="@+id/text_cleaning_schedule_edit_frequency" />
 
     <Spinner
-        android:id="@+id/spinner_roommate"
+        android:id="@+id/spinner_cleaning_schedule_edit_roommate"
         android:layout_width="227dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -132,5 +110,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_assigned" />
+
+    <Button
+        android:id="@+id/button_cleaning_schedule_edit_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/cleaning_edit_delete"
+        app:layout_constraintEnd_toStartOf="@+id/button_cleaning_schedule_edit_save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_cleaning_schedule_edit_roommate" />
+
+    <Button
+        android:id="@+id/button_cleaning_schedule_edit_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/cleaning_edit_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_cleaning_schedule_edit_delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
