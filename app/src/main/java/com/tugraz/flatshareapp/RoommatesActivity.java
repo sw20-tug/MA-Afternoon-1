@@ -43,7 +43,7 @@ public class RoommatesActivity extends AppCompatActivity {
 
             for (final Roommate roommateInv : allRoommates) {
 
-                View view = LayoutInflater.from(this).inflate(R.layout.template_roommate_list, null);
+                View view = LayoutInflater.from(this).inflate(R.layout.template_cleaning_schedule_list, null);
                 TextView name = view.findViewById(R.id.roommate_template_name);
 
                 Button editButton = view.findViewById(R.id.editButton);

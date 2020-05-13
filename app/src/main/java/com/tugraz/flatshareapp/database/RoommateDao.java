@@ -13,6 +13,9 @@ import java.util.List;
 @Dao
 public interface RoommateDao {
 
+    @Query("SELECT * FROM roommate WHERE id=:id")
+    Roommate getRoommate(int id);
+
     @Insert
     long insert(Roommate roommate);
 
@@ -27,4 +30,6 @@ public interface RoommateDao {
 
     @Query("SELECT * FROM roommate")
     List<Roommate> getAllRoommates();
+
+
 }
