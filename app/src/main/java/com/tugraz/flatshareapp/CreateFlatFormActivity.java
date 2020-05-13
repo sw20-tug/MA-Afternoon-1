@@ -1,20 +1,19 @@
 package com.tugraz.flatshareapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
-import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tugraz.flatshareapp.database.Models.Flat;
 import com.tugraz.flatshareapp.database.FlatRepository;
+import com.tugraz.flatshareapp.database.Models.Roommate;
+import com.tugraz.flatshareapp.database.RoommateRepository;
 import com.tugraz.flatshareapp.utility.Persistence;
 
-import java.util.List;
+import java.util.Date;
 
 
 public class CreateFlatFormActivity extends AppCompatActivity {
@@ -25,13 +24,22 @@ public class CreateFlatFormActivity extends AppCompatActivity {
     Button buttonCreateFlat;
 
     FlatRepository dbExecutor;
+    RoommateRepository roommateRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_flat_form);
-        dbExecutor = new FlatRepository(getApplication());
 
+        dbExecutor = new FlatRepository(getApplication());
+        roommateRepository = new RoommateRepository(getApplication());
+
+        try {
+            if(dbExecutor.getAllFlats().size() != 0)
+                finish();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         editFlatName  = (EditText) findViewById(R.id.editFlatName);
         editStreetName = (EditText) findViewById(R.id.editStreetName);
@@ -39,8 +47,6 @@ public class CreateFlatFormActivity extends AppCompatActivity {
         editCity = (EditText) findViewById(R.id.editCity);
         editCountry = (EditText) findViewById(R.id.editCountry);
         buttonCreateFlat = (Button) findViewById(R.id.buttonCreateFlat);
-
-
 
         buttonCreateFlat.setOnClickListener(new View.OnClickListener() {
 
@@ -52,52 +58,21 @@ public class CreateFlatFormActivity extends AppCompatActivity {
                 String city = editCity.getText().toString();
                 String country = editCountry.getText().toString();
                 dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country, true));
-                // TODO handle active flat
+
+                Date sometime = new Date();
+
                 try {
-                    List<Flat> list = dbExecutor.getAllFlats();
-                    for (Flat flat : list ) {
-                        if(flat.getActive())
-                            Persistence.Instance().setActiveFlatID(flat.getId());
-                    }
+                    Persistence.Instance().setActiveFlatID(Persistence.INITIAL_ID);
+                    if(roommateRepository.getAllRoommates().size() == 0)
+                        roommateRepository.insert(new Roommate("me", "", sometime, sometime, Persistence.INITIAL_ID));
+                    Persistence.Instance().setActiveRoommateId(Persistence.INITIAL_ID);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                switchActivity(OverviewActivity.class);
-
+                
+                finish();
             }
         });
-
-        // TODO migrate that to overview
-        try {
-            List<Flat> flats = dbExecutor.getAllFlats();
-            // if flat found fill in fields
-            if (!flats.isEmpty()) {
-                fillFormWithFlatInfo(flats.get(0));
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "onResume: ", e);
-        }
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    private void fillFormWithFlatInfo(Flat flat) {
-        editFlatName.setText(flat.getName());
-        editStreetName.setText(flat.getStreetName());
-        editStreetNumber.setText(flat.getStreetNumber());
-        editCity.setText(flat.getCity());
-        editCountry.setText(flat.getCountry());
-        buttonCreateFlat.setText("Edit");
-    }
-
-    public void switchActivity(Class activity) {
-        Intent intent = new Intent(this, activity);
-        startActivity(intent);
     }
 }
 

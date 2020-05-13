@@ -5,8 +5,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -19,6 +22,7 @@ import com.tugraz.flatshareapp.database.Models.Cleaning;
 import com.tugraz.flatshareapp.database.Models.Roommate;
 import com.tugraz.flatshareapp.database.RoommateRepository;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -35,6 +39,7 @@ public class CleaningScheduleActivity extends AppCompatActivity {
     Context context;
 
     LinearLayout cleaning_list;
+    Spinner spinner_export;
 
 
     public void loadCleaningScheduleList()
@@ -115,6 +120,7 @@ public class CleaningScheduleActivity extends AppCompatActivity {
         context = this;
 
         cleaning_list = findViewById(R.id.cleaning_list);
+        spinner_export = findViewById(R.id.spinner_cleaning_export);
 
         fragmentManager = getSupportFragmentManager();
 
@@ -131,6 +137,27 @@ public class CleaningScheduleActivity extends AppCompatActivity {
                 fragmentTransaction.addToBackStack("").commit();
             }
         });
+
+        ArrayList values = new ArrayList();
+        values.add(getResources().getString(R.string.cleaning_export_all));
+        values.add(getResources().getString(R.string.cleaning_export_user));
+        ArrayAdapter<String > adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, values);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        spinner_export.setAdapter(adapter);
+
+        spinner_export.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(android.widget.AdapterView<?> parent) {
+
+            }
+        });
+
 
         fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
             @Override
