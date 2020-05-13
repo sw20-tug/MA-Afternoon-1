@@ -13,9 +13,8 @@ public class Finance {
     private int roommateId;
     private int flatId;
 
-    public Finance(int id, String description, float value, int roommateId, int flatId)
+    public Finance(String description, float value, int roommateId, int flatId)
     {
-        this.id = id;
         this.description = description;
         this.value = value;
         this.roommateId = roommateId;

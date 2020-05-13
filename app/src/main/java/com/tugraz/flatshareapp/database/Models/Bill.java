@@ -13,9 +13,8 @@ public class Bill {
     private boolean monthly;
     private int flatId;
 
-    public Bill(int id, String description, float value, boolean monthly, int flatId)
+    public Bill(String description, float value, boolean monthly, int flatId)
     {
-        this.id = id;
         this.description = description;
         this.value = value;
         this.monthly = monthly;

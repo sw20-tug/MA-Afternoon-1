@@ -92,6 +92,12 @@
     <string name="cleaning_edit_delete">Delete</string>
     <string name="cleaning_edit_close">Close</string>
 
+    <!-- Financing furniture and equipment -->
+    <string name="financing_furniture_title">Individual finance</string>
+    <string name="financing_furniture_detail_item_name">Item</string>
+    <string name="financing_furniture_detail_price">Price</string>
+
+
     <!-- General -->
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>

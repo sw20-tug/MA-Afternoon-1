@@ -80,6 +80,14 @@ public class OverviewActivity extends AppCompatActivity {
             }
         });
 
+        btn_financing.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                switchActivity(FinancingFurnitureActivity.class);
+            }
+        });
+
         try {
             List<Flat> flats = dbExecutor.getAllFlats();
             // if flat found fill in fields
