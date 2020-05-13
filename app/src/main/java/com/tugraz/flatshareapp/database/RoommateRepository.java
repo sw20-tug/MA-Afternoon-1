@@ -7,6 +7,7 @@ import android.util.Log;
 import com.tugraz.flatshareapp.database.Models.Roommate;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class RoommateRepository {
     private static final String TAG = RoommateRepository.class.getSimpleName();
@@ -15,6 +16,10 @@ public class RoommateRepository {
     public RoommateRepository(Application application) {
         AppDatabase database = AppDatabase.getInstance(application);
         roommateDao = database.roommateDao();
+    }
+
+    public Roommate get(int id) throws ExecutionException, InterruptedException {
+        return new RoommateRepository.GetRoommateAsyncTask(roommateDao).execute(id).get();
     }
 
     public void insert(Roommate roommate) {
@@ -36,6 +41,20 @@ public class RoommateRepository {
 
     public List<Roommate> getAllRoommates() throws Exception{
         return new RoommateRepository.GetAllRoommatesAsyncTask(roommateDao).execute().get();
+
+    }
+
+    private static class GetRoommateAsyncTask extends AsyncTask<Integer, Void, Roommate> {
+        private RoommateDao roommateDao;
+
+        private GetRoommateAsyncTask(RoommateDao roommateDao) {
+            this.roommateDao = roommateDao;
+        }
+
+        @Override
+        protected Roommate doInBackground(Integer... integers) {
+            return roommateDao.getRoommate(integers[0]);
+        }
     }
 
     private static class GetAllRoommatesAsyncTask extends AsyncTask<Void, Void, List<Roommate>> {

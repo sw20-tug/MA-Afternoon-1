@@ -1,5 +1,6 @@
 package com.tugraz.flatshareapp.database.Models;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -66,5 +67,11 @@ public class Roommate {
 
     public void setFlatId(int flatId) {
         this.flatId = flatId;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.name + " " + this.lastName;
     }
 }

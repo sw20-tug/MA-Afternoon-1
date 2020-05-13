@@ -46,10 +46,10 @@
         android:layout_marginTop="16dp"
         android:text="@string/cleaning_edit_date_frequency"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+        app:layout_constraintTop_toBottomOf="@+id/cleaning_description" />
 
     <EditText
-        android:id="@+id/tv_description"
+        android:id="@+id/cleaning_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -89,15 +89,15 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner_cleaning_schedule_edit_roommate" />
 
     <TextView
-        android:id="@+id/tv_assigned"
+        android:id="@+id/assigned_rommate_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="20dp"
         android:text="@string/cleaning_edit_assigned"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_cleaning_schedule_edit_frequency" />
+        app:layout_constraintTop_toBottomOf="@+id/done_switch" />
 
     <Spinner
         android:id="@+id/spinner_cleaning_schedule_edit_roommate"
@@ -109,7 +109,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_assigned" />
+        app:layout_constraintTop_toBottomOf="@+id/assigned_rommate_name" />
 
     <Button
         android:id="@+id/button_cleaning_schedule_edit_delete"
@@ -132,5 +132,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_cleaning_schedule_edit_delete" />
+
+    <Switch
+        android:id="@+id/done_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/cleaning_done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_frequency" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
