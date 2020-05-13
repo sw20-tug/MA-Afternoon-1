@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/financing_furniture_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/roommates_detail_title"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_financing_furniture_detail_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="@string/cleaning_edit_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_financing_furniture_detail_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/financing_furniture_detail_item_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/financing_furniture_detail" />
+
+    <EditText
+        android:id="@+id/input_financing_furniture_detail_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_financing_furniture_detail_item_name" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/text_rommates_detail_last_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/roommates_detail_last_name"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/input_rommates_detail_first_name" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/input_rommates_detail_last_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginEnd="24dp"-->
+<!--        android:layout_marginRight="24dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_rommates_detail_last_name" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/text_rommates_detail_birthday"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/roommates_detail_birthday"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/input_rommates_detail_last_name" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/input_rommates_detail_birthday"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginEnd="24dp"-->
+<!--        android:layout_marginRight="24dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="date"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_rommates_detail_birthday"-->
+<!--        tools:text="@tools:sample/date/ddmmyy" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/text_rommates_detail_roommates_since"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/roommates_detail_roommate_since"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/input_rommates_detail_birthday" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/input_rommates_detail_roommates_since"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginEnd="24dp"-->
+<!--        android:layout_marginRight="24dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="date"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_rommates_detail_roommates_since"-->
+<!--        tools:text="@tools:sample/date/mmddyy" />-->
+
+    <!--        app:layout_constraintTop_toBottomOf="" />-->
+
+    <Button
+        android:id="@+id/btn_financing_furniture_detail_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/roommates_detail_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/financing_furniture_scrollView1" />
+
+    <TextView
+        android:id="@+id/text_financing_furniture_detail_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/financing_furniture_detail_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_financing_furniture_detail_item_name" />
+
+    <EditText
+        android:id="@+id/input_financing_furniture_detail_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_financing_furniture_detail_item_price" />
+
+    <ScrollView
+        android:id="@+id/financing_furniture_scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_financing_furniture_detail_item_price">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_financing_furniture_roommate_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
