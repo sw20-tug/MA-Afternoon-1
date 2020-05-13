@@ -79,6 +79,8 @@
     <string name="cleaning_done">Done</string>
     <string name="cleaning_roommate_placeholder">Roommate</string>
     <string name="cleaning_description_placeholder">Description</string>
+    <string name="cleaning_export_all">Export all</string>
+    <string name="cleaning_export_user">Export mine</string>
 
     <!--  Fragment Cleaning Edit  -->
     <string name="cleaning_edit_title">Cleaning Job</string>

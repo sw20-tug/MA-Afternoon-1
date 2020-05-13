@@ -55,9 +55,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            flatDao.insert(new Flat("name1", "streetName1", "streetNumber1", "city1", "country1", true));
-            flatDao.insert(new Flat("name2", "streetName2", "streetNumber2", "city2", "country2",false));
-            flatDao.insert(new Flat("name3", "streetName3", "streetNumber3", "city3", "country3", false));
+//            flatDao.insert(new Flat("name1", "streetName1", "streetNumber1", "city1", "country1", true));
+//            flatDao.insert(new Flat("name2", "streetName2", "streetNumber2", "city2", "country2",false));
+//            flatDao.insert(new Flat("name3", "streetName3", "streetNumber3", "city3", "country3", false));
             return null;
         }
     }

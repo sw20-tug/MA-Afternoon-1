@@ -31,10 +31,11 @@
                 android:id="@+id/text_cleaning_schedule_roommate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/cleaning_title"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,6 +51,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ScrollView
+                android:id="@+id/scrollView3"
                 android:layout_width="409dp"
                 android:layout_height="660dp"
                 android:layout_marginTop="16dp"
@@ -64,6 +66,20 @@
 
                 </LinearLayout>
             </ScrollView>
+
+            <Spinner
+                android:id="@+id/spinner_cleaning_export"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:spinnerMode="dropdown"
+                app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+                app:layout_constraintEnd_toStartOf="@+id/btn_cleaning_schedule_add"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_cleaning_schedule_roommate" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
