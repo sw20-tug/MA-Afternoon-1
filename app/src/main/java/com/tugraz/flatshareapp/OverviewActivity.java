@@ -26,6 +26,9 @@ public class OverviewActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dbExecutor = new FlatRepository(getApplication());
+
         // initialise active flat persistance
         try {
             for(Flat flat: dbExecutor.getAllFlats()) {
@@ -37,7 +40,7 @@ public class OverviewActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        dbExecutor = new FlatRepository(getApplication());
+
         // Set layout
         setContentView(R.layout.activity_overview);
 
