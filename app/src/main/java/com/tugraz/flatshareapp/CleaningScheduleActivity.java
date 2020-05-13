@@ -19,6 +19,9 @@ import com.tugraz.flatshareapp.database.Models.Cleaning;
 import com.tugraz.flatshareapp.database.Models.Roommate;
 import com.tugraz.flatshareapp.database.RoommateRepository;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class CleaningScheduleActivity extends AppCompatActivity {
@@ -41,6 +44,8 @@ public class CleaningScheduleActivity extends AppCompatActivity {
             List<Cleaning> allCleanings = clean_repo.getAllCleanings();
 
             for (final Cleaning cleaning : allCleanings) {
+
+                resetSchedule(cleaning);
 
                 View view = LayoutInflater.from(this).inflate(R.layout.template_cleaning_schedule_list, null);
                 TextView name = view.findViewById(R.id.rommate_name);
@@ -75,6 +80,28 @@ public class CleaningScheduleActivity extends AppCompatActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void resetSchedule(Cleaning cleaning) {
+        if (cleaning.isCompleted()) {
+            Date newDate = new Date(cleaning.getDoneTimestamp());
+
+            GregorianCalendar calendar = new GregorianCalendar();
+            calendar.setTime(newDate);
+            if(cleaning.isWeekly()) {
+                calendar.add(Calendar.DAY_OF_YEAR, 7);
+            } else {
+                calendar.add(Calendar.MONTH, 1);
+            }
+
+            newDate.setTime(calendar.getTime().getTime());
+
+            if (newDate.getTime() < new Date().getTime()) {
+                cleaning.setCompleted(false);
+            }
+
+            clean_repo.update(cleaning);
         }
     }
 

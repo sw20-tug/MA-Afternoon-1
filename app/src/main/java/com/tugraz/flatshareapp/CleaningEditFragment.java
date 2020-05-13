@@ -28,6 +28,7 @@ import com.tugraz.flatshareapp.utility.Persistence;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -119,11 +120,11 @@ public class CleaningEditFragment extends Fragment {
                 Cleaning cleaning;
                 boolean weekly = "Weekly".contentEquals(frequency_text.getText());
                 if(task == null) {
-                    cleaning = new Cleaning(weekly, 0, description.getText().toString()
+                    cleaning = new Cleaning(weekly, new Date().getTime(), description.getText().toString()
                             , done_switch.isChecked(), ((Roommate)roommate_selection.getSelectedItem()).getId(),  Persistence.Instance().getActiveFlatID());
                     clean_repo.insert(cleaning);
                 } else {
-                    cleaning = new Cleaning(weekly, task.getDoneTimestamp(), description.getText().toString()
+                    cleaning = new Cleaning(weekly, new Date().getTime(), description.getText().toString()
                             , done_switch.isChecked(), ((Roommate)roommate_selection.getSelectedItem()).getId(),  Persistence.Instance().getActiveFlatID());
                     cleaning.setId(task.getId());
                     clean_repo.update(cleaning);
