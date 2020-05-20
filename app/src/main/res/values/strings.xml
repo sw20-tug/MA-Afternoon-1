@@ -14,6 +14,7 @@
     <string name="cleaning_schedule">Cleaning Schedule</string>
     <string name="shopping_list">Shopping List</string>
     <string name="financing">Financing</string>
+    <string name="bill">Bill</string>
 
     <!--  Activity flat list  -->
     <string name="flat_list_title">Flat list</string>
@@ -99,12 +100,20 @@
     <string name="financing_furniture_detail_item_name">Item</string>
     <string name="financing_furniture_detail_price">Price</string>
 
+    <!-- Bills -->
+    <string name="bill_list_title">Monthly bills</string>
+    <string name="bill_list_rental_fee">Rental fee</string>
+    <string name="bill_list_smartphone_bill">Smartphone bill</string>
+    <string name="bill_list_energy_bill">Energy bill</string>
+    <string name="bill_list_internet_bill">Internet bill</string>
+    <string name="bill_list_tv_bill">TV bill</string>
 
     <!-- General -->
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
     <string name="yes">Yes</string>
     <string name= "no">No</string>
+    <string name= "name">Name</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

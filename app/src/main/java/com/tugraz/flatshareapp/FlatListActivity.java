@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.tugraz.flatshareapp.database.BillRepository;
 import com.tugraz.flatshareapp.database.FlatRepository;
 import com.tugraz.flatshareapp.database.Models.Flat;
 import com.tugraz.flatshareapp.utility.Persistence;
@@ -29,6 +30,7 @@ public class FlatListActivity  extends FragmentActivity {
     LinearLayout flat_list;
 
     FlatRepository flatData;
+    BillRepository bill_repo;
     String flatName;
     Boolean flatActive;
     FragmentManager fragmentManager;
@@ -71,7 +73,7 @@ public class FlatListActivity  extends FragmentActivity {
                     public void onClick(View v) {
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                        FlatListDetailFragment fragment = new FlatListDetailFragment(flatInv, flatData);
+                        FlatListDetailFragment fragment = new FlatListDetailFragment(flatInv, flatData, null);
                         fragmentTransaction.add(R.id.fragment_container, fragment);
                         fragmentTransaction.addToBackStack("").commit();
                     }
@@ -118,6 +120,7 @@ public class FlatListActivity  extends FragmentActivity {
         setContentView(R.layout.activity_flat_list);
 
         flatData = new FlatRepository(getApplication());
+        bill_repo = new BillRepository(getApplication());
         context = this;
 
         fragmentManager = getSupportFragmentManager();
@@ -132,7 +135,7 @@ public class FlatListActivity  extends FragmentActivity {
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                FlatListDetailFragment fragment = new FlatListDetailFragment(null, flatData);
+                FlatListDetailFragment fragment = new FlatListDetailFragment(null, flatData, bill_repo);
                 fragmentTransaction.add(R.id.fragment_container, fragment);
                 fragmentTransaction.addToBackStack("").commit();
             }

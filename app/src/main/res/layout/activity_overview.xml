@@ -66,11 +66,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_flat_name" />
 
     <Button
-        android:id="@+id/btn_financing2"
+        android:id="@+id/btn_bill"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_marginTop="440dp"
-        android:text="bills"
+        android:text="@string/bill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +86,16 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_flat_name" />
+<!--<<<<<<< HEAD-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/btn_bill"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.504"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name"-->
+<!--        app:layout_constraintVertical_bias="0.983" />-->
+<!--=======-->
+
+<!--&gt;>>>>>> 35862b9f2f5d35099ee6f842d88855df85301886-->
 
     <TextView
         android:id="@+id/tv_street_name_value"
@@ -235,5 +245,17 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="2dp"
         tools:layout_editor_absoluteY="72dp" />
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_bill"-->
+<!--        android:layout_width="199dp"-->
+<!--        android:layout_height="62dp"-->
+<!--        android:layout_marginTop="536dp"-->
+<!--        android:text="@string/bill"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name"-->
+<!--        app:layout_constraintVertical_bias="0.983" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
