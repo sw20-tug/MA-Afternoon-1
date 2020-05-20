@@ -51,6 +51,7 @@ public class FinancingFurnitureActivity  extends FragmentActivity {
                 }
                 roommate_name.setText(cur_roommate);
                 price.setText(String.format("%.2f",f.getValue()));
+                price.setEnabled(false);
                 item.setText(f.getDescription());
 
                 financing_list.addView(view);

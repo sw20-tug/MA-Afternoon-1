@@ -23,6 +23,7 @@ import com.tugraz.flatshareapp.database.Models.Roommate;
 import com.tugraz.flatshareapp.database.RoommateRepository;
 import com.tugraz.flatshareapp.utility.Persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FinancingFurnitureDetailFragment extends Fragment {
@@ -32,6 +33,7 @@ public class FinancingFurnitureDetailFragment extends Fragment {
     FinanceRepository finance_repo;
     LinearLayout linear_roomate_list;
     List<Roommate> roommate_list;
+    List<Roommate> roomate_in_current_flat_list;
     List<Integer> checked_roommates;
     CheckBox current_roomate;
     Integer current_flat_id = Persistence.Instance().getActiveFlatID();
@@ -39,12 +41,13 @@ public class FinancingFurnitureDetailFragment extends Fragment {
     FinancingFurnitureDetailFragment(List<Roommate> roomate_list, FinanceRepository finance_repo){
         this.roommate_list = roomate_list;
         this.finance_repo = finance_repo;
+        roomate_in_current_flat_list = new ArrayList<>();
     }
 
     public void loadRoomateList(){
         linear_roomate_list.removeAllViews();
         try {
-            for (final Roommate roommateInv : roommate_list) {
+            for (final Roommate roommateInv : roomate_in_current_flat_list) {
                 if (roommateInv.getFlatId() == current_flat_id) {
 
                     View view = LayoutInflater.from(getActivity()).inflate(R.layout.template_financing_furniture_list, null);
@@ -72,10 +75,12 @@ public class FinancingFurnitureDetailFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_financing_furniture_detail, null);
         linear_roomate_list = view.findViewById(R.id.linear_layout_financing_furniture_roommate_list);
+        checked_roommates = new ArrayList<>();
+
 
         for(Roommate r : roommate_list){
-            if(r.getFlatId() != current_flat_id){
-                roommate_list.remove(r);
+            if(r.getFlatId() == current_flat_id){
+                roomate_in_current_flat_list.add(r);
             }
         }
         loadRoomateList();
@@ -100,20 +105,20 @@ public class FinancingFurnitureDetailFragment extends Fragment {
                 Integer cur_id = null;
                 //Fetch the checked list
                 //error while adding the checked roommates to list
-//                for(int i=0; i<linear_roomate_list.getChildCount(); i++){
-//                    View view = linear_roomate_list.getChildAt(i);
-//                    if(view.findViewById(R.id.financing_furniture_template_roomate_id) != null) {
-//                        current_roomate_id = view.findViewById(R.id.financing_furniture_template_roomate_id);
-//                        cur_id = Integer.parseInt(current_roomate_id.getText().toString());
-//                    }
-//                    if(view.findViewById(R.id.financing_furniture_roomate_list) != null) {
-//                        current_roomate = view.findViewById(R.id.financing_furniture_roomate_list);
-//
-//                        if (current_roomate.isChecked())
-//                            if(cur_id != null)
-//                                checked_roommates.add(cur_id);
-//                    }
-//                }
+                for(int i=0; i<linear_roomate_list.getChildCount(); i++){
+                    View view = linear_roomate_list.getChildAt(i);
+                    if(view.findViewById(R.id.financing_furniture_template_roomate_id) != null) {
+                        current_roomate_id = view.findViewById(R.id.financing_furniture_template_roomate_id);
+                        cur_id = Integer.parseInt(current_roomate_id.getText().toString());
+                    }
+                    if(view.findViewById(R.id.financing_furniture_roomate_list) != null) {
+                        current_roomate = view.findViewById(R.id.financing_furniture_roomate_list);
+
+                        if (current_roomate.isChecked())
+                            if(cur_id != null)
+                                checked_roommates.add(cur_id);
+                    }
+                }
 
                 //Divide the price among checked list
                 if(!checked_roommates.isEmpty()){
@@ -122,6 +127,7 @@ public class FinancingFurnitureDetailFragment extends Fragment {
 
                     for(int cur_roommate_id: checked_roommates)
                         finance_repo.insert(new Finance(item_name.getText().toString(), indv_price,  cur_roommate_id, current_flat_id));
+                    getActivity().getSupportFragmentManager().popBackStack();
                 }
             }
         });
