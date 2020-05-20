@@ -27,15 +27,10 @@ import com.tugraz.flatshareapp.utility.Persistence;
 
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-//import java.util.Calendar;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-
-import net.fortuna.ical4j.model.Calendar;
-import net.fortuna.ical4j.model.property.CalScale;
-import net.fortuna.ical4j.model.property.ProdId;
-import net.fortuna.ical4j.model.property.Version;
 
 public class CleaningScheduleActivity extends AppCompatActivity {
 
@@ -81,15 +76,15 @@ public class CleaningScheduleActivity extends AppCompatActivity {
     }
 
     private String getDateString(Date date) {
-        java.util.Calendar c = java.util.Calendar.getInstance();
+        Calendar c = Calendar.getInstance();
         c.setTime(date);
 
-        int year = c.get(java.util.Calendar.YEAR);
-        int month = c.get(java.util.Calendar.MONTH) + 1;
-        int day = c.get(java.util.Calendar.DAY_OF_MONTH);
-        int hour = c.get(java.util.Calendar.HOUR);
-        int minute = c.get(java.util.Calendar.MINUTE);
-        int second = c.get(java.util.Calendar.SECOND);
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH) + 1;
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        int hour = c.get(Calendar.HOUR);
+        int minute = c.get(Calendar.MINUTE);
+        int second = c.get(Calendar.SECOND);
 
         return year + pad(month) + pad(day) + "T" + pad(hour) + pad(minute) + pad(second);
     }
@@ -130,7 +125,7 @@ public class CleaningScheduleActivity extends AppCompatActivity {
         return list;
     }
 
-    private void addEventToCal(Calendar calendar, int roommate_id) throws Exception {
+    private void addEventToCal(int roommate_id) throws Exception {
         for (Cleaning clean : clean_repo.getAllCleanings()) {
             if(clean.getFlatId() != Persistence.Instance().getActiveFlatID() || clean.getRoommateId() != roommate_id)
                 continue;
@@ -291,11 +286,6 @@ public class CleaningScheduleActivity extends AppCompatActivity {
                     addLine("VERSION:2.0");
                     addLine("PRODID:flatshareapp");
 
-                    Calendar calendar = new Calendar();
-                    calendar.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
-                    calendar.getProperties().add(Version.VERSION_2_0);
-                    calendar.getProperties().add(CalScale.GREGORIAN);
-
                     String file_name = "";
                     String flat_name = flat_repo.getAllFlats().get(Persistence.Instance().getActiveFlatID()).getName();
 
@@ -308,7 +298,7 @@ public class CleaningScheduleActivity extends AppCompatActivity {
 
                             int mate_id = mate.getId();
 
-                            addEventToCal(calendar, mate_id);
+                            addEventToCal(mate_id);
                         }
                     }
                     else {
@@ -317,7 +307,7 @@ public class CleaningScheduleActivity extends AppCompatActivity {
 
                         file_name = flat_name + "_" + selected_mate.getName() + "_" + selected_mate.getLastName() + "_cleaning" ;
 
-                        addEventToCal(calendar, mate_id);
+                        addEventToCal(mate_id);
                     }
 
                     addLine("END:VCALENDAR");
