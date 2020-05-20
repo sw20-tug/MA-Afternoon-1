@@ -2,6 +2,7 @@ package com.tugraz.flatshareapp.database;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.tugraz.flatshareapp.database.Models.Bill;
 
@@ -21,6 +22,7 @@ public class BillRepository {
     public void insert(Bill bill)
     {
         new BillRepository.InsertBillAsyncTask(billDao).execute(bill);
+        Log.e("","Inserted " + bill.toString());
     }
 
     public void update(Bill bill)

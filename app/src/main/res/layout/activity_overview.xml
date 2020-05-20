@@ -58,11 +58,12 @@
         android:layout_width="199dp"
         android:layout_height="62dp"
         android:text="@string/financing"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_bill"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_flat_name"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintVertical_bias="0.983" />
 
     <TextView
         android:id="@+id/tv_street_name"
@@ -173,5 +174,17 @@
         android:text="@string/organize_flat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_bill"
+        android:layout_width="199dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="536dp"
+        android:text="@string/bill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name"
+        app:layout_constraintVertical_bias="0.983" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,7 @@
         <activity android:name=".CleaningScheduleActivity" />
         <activity android:name=".FlatListActivity" />
         <activity android:name=".FinancingFurnitureActivity" />
+        <activity android:name=".BillsActivity" />
     </application>
 
 </manifest>

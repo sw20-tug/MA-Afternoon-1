@@ -6,6 +6,7 @@ import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
@@ -19,8 +20,9 @@ import java.util.List;
 
 public class OverviewActivity extends AppCompatActivity {
 
-    Button btn_room_mates, btn_shopping_list, btn_cleaning_schedule, btn_financing, btn_organize;
+    Button btn_room_mates, btn_shopping_list, btn_cleaning_schedule, btn_financing, btn_organize, btn_bills;
     FlatRepository dbExecutor;
+    TextView check;
     private static final String TAG = CreateFlatFormActivity.class.getSimpleName();
 
     @Override
@@ -49,6 +51,25 @@ public class OverviewActivity extends AppCompatActivity {
         btn_cleaning_schedule = (Button) findViewById(R.id.btn_cleaning_schedule);
         btn_financing = (Button) findViewById(R.id.btn_financing);
         btn_organize = (Button) findViewById(R.id.btn_organizeflat);
+        btn_bills = (Button) findViewById(R.id.btn_bill);
+
+        try {
+            for(Flat cFlat : dbExecutor.getAllFlats()){
+                if(cFlat.getActive()){
+                    check = findViewById(R.id.tv_city_value);
+                    check.setText(cFlat.getCity());
+                    check = findViewById(R.id.tv_country_value);
+                    check.setText(cFlat.getCountry());
+                    check = findViewById(R.id.tv_street_name_value);
+                    check.setText(cFlat.getStreetName());
+                    check = findViewById(R.id.tv_street_number_value);
+                    check.setText(cFlat.getStreetNumber());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
 //        switchActivity(CreateFlatFormActivity.class);
         btn_room_mates.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +109,14 @@ public class OverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switchActivity(FinancingFurnitureActivity.class);
+            }
+        });
+
+        btn_bills.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                switchActivity(BillsActivity.class);
             }
         });
 

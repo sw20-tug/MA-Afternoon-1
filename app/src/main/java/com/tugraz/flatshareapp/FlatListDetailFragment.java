@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.tugraz.flatshareapp.database.BillRepository;
 import com.tugraz.flatshareapp.database.FlatRepository;
+import com.tugraz.flatshareapp.database.Models.Bill;
 import com.tugraz.flatshareapp.database.Models.Flat;
 
 public class FlatListDetailFragment extends Fragment {
@@ -26,11 +28,14 @@ public class FlatListDetailFragment extends Fragment {
 
     FlatRepository flat_repo;
 
+    BillRepository bill_repo;
+
     boolean created;
 
-    FlatListDetailFragment (Flat flat, FlatRepository repo) {
+    FlatListDetailFragment (Flat flat, FlatRepository repo, BillRepository bill_repo) {
         this.flat = flat;
         this.flat_repo = repo;
+        this.bill_repo = bill_repo;
 
         if(flat != null)
         {
@@ -43,6 +48,8 @@ public class FlatListDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view =  inflater.inflate(R.layout.fragment_flat_list_detail, null);
+
+//        bill_repo = new BillRepository();
 
         flat_close  = (Button) view.findViewById(R.id.btn_flat_detail_close);
         flat_save = (Button) view.findViewById(R.id.button_flatlist_detail_edit);
@@ -97,6 +104,14 @@ public class FlatListDetailFragment extends Fragment {
                 if(!created)
                 {
                     flat_repo.insert(new_flat);
+                    if(bill_repo != null) {
+                        //add bills for the new flat initialised to zero
+                        bill_repo.insert(new Bill("Rental fee", 0, true, new_flat.getId()));
+                        bill_repo.insert(new Bill("Smartphone bill", 0, true, new_flat.getId()));
+                        bill_repo.insert(new Bill("Internet bill", 0, true, new_flat.getId()));
+                        bill_repo.insert(new Bill("TV bill", 0, true, new_flat.getId()));
+                        bill_repo.insert(new Bill("Energy bill", 0, true, new_flat.getId()));
+                    }
                     created = true;
                 }
                 else
