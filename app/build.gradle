@@ -35,6 +35,4 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     debugImplementation 'com.idescout.sql:sqlscout-server:4.1'
     releaseImplementation 'com.idescout.sql:sqlscout-server-noop:4.1'
-
-    implementation 'org.mnode.ical4j:ical4j:3.0.18'
 }
