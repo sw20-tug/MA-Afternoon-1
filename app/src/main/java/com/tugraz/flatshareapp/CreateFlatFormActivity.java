@@ -7,6 +7,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tugraz.flatshareapp.database.BillRepository;
+import com.tugraz.flatshareapp.database.Models.Bill;
 import com.tugraz.flatshareapp.database.Models.Flat;
 import com.tugraz.flatshareapp.database.FlatRepository;
 import com.tugraz.flatshareapp.database.Models.Roommate;
@@ -25,6 +27,7 @@ public class CreateFlatFormActivity extends AppCompatActivity {
 
     FlatRepository dbExecutor;
     RoommateRepository roommateRepository;
+    BillRepository bill_repo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class CreateFlatFormActivity extends AppCompatActivity {
 
         dbExecutor = new FlatRepository(getApplication());
         roommateRepository = new RoommateRepository(getApplication());
+        bill_repo = new BillRepository(getApplication());
 
         try {
             if(dbExecutor.getAllFlats().size() != 0)

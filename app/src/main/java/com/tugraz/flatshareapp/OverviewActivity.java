@@ -12,7 +12,9 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tugraz.flatshareapp.database.BillRepository;
 import com.tugraz.flatshareapp.database.FlatRepository;
+import com.tugraz.flatshareapp.database.Models.Bill;
 import com.tugraz.flatshareapp.database.Models.Flat;
 import com.tugraz.flatshareapp.utility.Persistence;
 
@@ -22,6 +24,7 @@ public class OverviewActivity extends AppCompatActivity {
 
     Button btn_room_mates, btn_shopping_list, btn_cleaning_schedule, btn_financing, btn_organize, btn_bills;
     FlatRepository dbExecutor;
+    BillRepository bill_repo;
     TextView check;
     private static final String TAG = CreateFlatFormActivity.class.getSimpleName();
 
@@ -30,6 +33,7 @@ public class OverviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         dbExecutor = new FlatRepository(getApplication());
+        bill_repo = new BillRepository(getApplication());
 
         // initialise active flat persistance
         try {
@@ -119,12 +123,30 @@ public class OverviewActivity extends AppCompatActivity {
     protected void onResume()
     {
         super.onResume();
+
         updateFlatData();
     }
 
     public void updateFlatData()
     {
         try {
+            boolean is_empty = true;
+            for (Bill current_bill: bill_repo.getAllBills())
+            {
+                if(current_bill.getFlatId() == Persistence.Instance().getActiveFlatID())
+                {
+                    is_empty = false;
+                }
+            }
+            if(is_empty)
+            {
+                bill_repo.insert(new Bill("Rental fee", 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill("Smartphone bill", 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill("Internet bill", 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill("TV bill", 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill("Energy bill", 0, true, Persistence.Instance().getActiveFlatID()));
+            }
+
             for(Flat cFlat : dbExecutor.getAllFlats()){
                 if(cFlat.getActive()){
                     check = findViewById(R.id.tv_city_value);
