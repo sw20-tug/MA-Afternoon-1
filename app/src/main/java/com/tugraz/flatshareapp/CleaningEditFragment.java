@@ -77,7 +77,7 @@ public class CleaningEditFragment extends Fragment {
 
         if(task != null) {
             description.setText(task.getDescription());
-            frequency_switch.setChecked(task.isWeekly());
+            frequency_switch.setChecked(!task.isWeekly());
             frequency_text.setText(task.isWeekly() ? R.string.cleaning_edit_date_frequency_weekly : R.string.cleaning_edit_date_frequency_monthly);
             done_switch.setChecked(task.isCompleted());
         }
@@ -118,7 +118,7 @@ public class CleaningEditFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Cleaning cleaning;
-                boolean weekly = "Weekly".contentEquals(frequency_text.getText());
+                boolean weekly = !frequency_switch.isChecked();
                 if(task == null) {
                     cleaning = new Cleaning(weekly, new Date().getTime(), description.getText().toString()
                             , done_switch.isChecked(), ((Roommate)roommate_selection.getSelectedItem()).getId(),  Persistence.Instance().getActiveFlatID());
@@ -131,6 +131,7 @@ public class CleaningEditFragment extends Fragment {
                 }
 
                 Toast.makeText(getActivity(), "Saved!", Toast.LENGTH_SHORT).show();
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 

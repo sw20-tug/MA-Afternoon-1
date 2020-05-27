@@ -18,6 +18,10 @@ import com.tugraz.flatshareapp.database.FlatRepository;
 import com.tugraz.flatshareapp.database.Models.Bill;
 import com.tugraz.flatshareapp.database.Models.Flat;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 public class FlatListDetailFragment extends Fragment {
 
     Button flat_close, flat_save, flat_delete;
@@ -103,14 +107,37 @@ public class FlatListDetailFragment extends Fragment {
 
                 if(!created)
                 {
-                    flat_repo.insert(new_flat);
+                    int flat_id = -1;
+                    try {
+                        List<Flat> flats_before_add = flat_repo.getAllFlats();
+                        flat_repo.insert(new_flat);
+                        List<Flat> flats_after_add = flat_repo.getAllFlats();
+                        HashSet<Integer> combined_flats = new HashSet<>();
+
+                        for(Flat current_flat: flats_before_add)
+                        {
+                            combined_flats.add(current_flat.getId());
+                        }
+                        for(Flat current_flat: flats_after_add)
+                        {
+
+                            if(!combined_flats.contains(current_flat.getId())) {
+                                flat_id = current_flat.getId();
+                                break;
+                            }
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     if(bill_repo != null) {
                         //add bills for the new flat initialised to zero
-                        bill_repo.insert(new Bill("Rental fee", 0, true, new_flat.getId()));
-                        bill_repo.insert(new Bill("Smartphone bill", 0, true, new_flat.getId()));
-                        bill_repo.insert(new Bill("Internet bill", 0, true, new_flat.getId()));
-                        bill_repo.insert(new Bill("TV bill", 0, true, new_flat.getId()));
-                        bill_repo.insert(new Bill("Energy bill", 0, true, new_flat.getId()));
+                        bill_repo.insert(new Bill("Rental fee", 0, true, flat_id));
+                        bill_repo.insert(new Bill("Smartphone bill", 0, true, flat_id));
+                        bill_repo.insert(new Bill("Internet bill", 0, true, flat_id));
+                        bill_repo.insert(new Bill("TV bill", 0, true, flat_id));
+                        bill_repo.insert(new Bill("Energy bill", 0, true, flat_id));
                     }
                     created = true;
                 }
@@ -118,6 +145,7 @@ public class FlatListDetailFragment extends Fragment {
                 {
                     flat_repo.update(new_flat);
                 }
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 
