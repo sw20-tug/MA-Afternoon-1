@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.tugraz.flatshareapp.database.Models.Flat;
 import com.tugraz.flatshareapp.database.Models.ShoppingList;
 import com.tugraz.flatshareapp.database.ShoppingListRepository;
+import com.tugraz.flatshareapp.utility.Persistence;
 
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class ShoppingListActivity extends AppCompatActivity {
             List<ShoppingList> allShoppingdata = shoppingList.getAllFlats();
 
             for (final ShoppingList shopInv : allShoppingdata) {
+
+                if(shopInv.getFlatId() != Persistence.Instance().getActiveFlatID())
+                    continue;
 
                 View view = LayoutInflater.from(context).inflate(R.layout.template_shopping_list, null);
                 layoutShoppingList.addView(view);

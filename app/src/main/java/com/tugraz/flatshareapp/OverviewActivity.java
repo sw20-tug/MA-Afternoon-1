@@ -53,23 +53,7 @@ public class OverviewActivity extends AppCompatActivity {
         btn_organize = (Button) findViewById(R.id.btn_organizeflat);
         btn_bills = (Button) findViewById(R.id.btn_bill);
 
-        try {
-            for(Flat cFlat : dbExecutor.getAllFlats()){
-                if(cFlat.getActive()){
-                    check = findViewById(R.id.tv_city_value);
-                    check.setText(cFlat.getCity());
-                    check = findViewById(R.id.tv_country_value);
-                    check.setText(cFlat.getCountry());
-                    check = findViewById(R.id.tv_street_name_value);
-                    check.setText(cFlat.getStreetName());
-                    check = findViewById(R.id.tv_street_number_value);
-                    check.setText(cFlat.getStreetNumber());
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        updateFlatData();
 
 //        switchActivity(CreateFlatFormActivity.class);
         btn_room_mates.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +112,35 @@ public class OverviewActivity extends AppCompatActivity {
             }
         } catch (Exception e) {
             Log.e(TAG, "onCreate: ", e);
+        }
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        updateFlatData();
+    }
+
+    public void updateFlatData()
+    {
+        try {
+            for(Flat cFlat : dbExecutor.getAllFlats()){
+                if(cFlat.getActive()){
+                    check = findViewById(R.id.tv_city_value);
+                    check.setText(cFlat.getCity());
+                    check = findViewById(R.id.tv_country_value);
+                    check.setText(cFlat.getCountry());
+                    check = findViewById(R.id.tv_street_name_value);
+                    check.setText(cFlat.getStreetName());
+                    check = findViewById(R.id.tv_street_number_value);
+                    check.setText(cFlat.getStreetNumber());
+                    check = findViewById(R.id.tv_flat_name);
+                    check.setText(cFlat.getName());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

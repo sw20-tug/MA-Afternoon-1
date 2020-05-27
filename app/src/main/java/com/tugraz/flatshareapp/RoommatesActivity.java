@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.tugraz.flatshareapp.database.Models.Flat;
 import com.tugraz.flatshareapp.database.Models.Roommate;
 import com.tugraz.flatshareapp.database.RoommateRepository;
+import com.tugraz.flatshareapp.utility.Persistence;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -42,6 +43,9 @@ public class RoommatesActivity extends AppCompatActivity {
             List<Roommate> allRoommates = roommate_repository.getAllRoommates();
 
             for (final Roommate roommateInv : allRoommates) {
+
+                if(roommateInv.getFlatId() != Persistence.Instance().getActiveFlatID())
+                    continue;
 
                 View view = LayoutInflater.from(this).inflate(R.layout.template_roommate_list, null);
                 TextView name = view.findViewById(R.id.roommate_template_name);

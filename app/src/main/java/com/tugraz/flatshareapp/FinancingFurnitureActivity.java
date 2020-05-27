@@ -39,6 +39,10 @@ public class FinancingFurnitureActivity  extends FragmentActivity {
         try{
             finance_list = finance_repo.getAllFinances();
             for(Finance f : finance_list){
+
+                if(f.getFlatId() != Persistence.Instance().getActiveFlatID())
+                    continue;
+
                 View view = LayoutInflater.from(this).inflate(R.layout.template_financing_furniture_detail_list, null);
                 roommate_name = view.findViewById(R.id.financing_furniture_roommate_name);
                 price  = view.findViewById(R.id.financing_furniture_price);
