@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flat_list_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,13 +15,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-<!--        <fragment-->
-<!--            android:id="@+id/detail_frag"-->
-<!--            android:name="com.tugraz.flatshareapp.RoommatesDetailFragment"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:visibility="visible"-->
-<!--            tools:layout="@layout/fragment_roommates_detail" />-->
+        <!--        <fragment-->
+        <!--            android:id="@+id/detail_frag"-->
+        <!--            android:name="com.tugraz.flatshareapp.RoommatesDetailFragment"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:visibility="visible"-->
+        <!--            tools:layout="@layout/fragment_roommates_detail" />-->
 
         <FrameLayout
             android:id="@+id/fragment_container"
@@ -78,14 +79,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-<!--    <fragment-->
-<!--        android:id="@+id/flat_list_fragment"-->
-<!--        android:name="com.tugraz.flatshareapp.FlatListDetailFragment"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:layout="@layout/fragment_flat_list_detail" />-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/flat_list_fragment"-->
+    <!--        android:name="com.tugraz.flatshareapp.FlatListDetailFragment"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="4dp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:layout="@layout/fragment_flat_list_detail" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
