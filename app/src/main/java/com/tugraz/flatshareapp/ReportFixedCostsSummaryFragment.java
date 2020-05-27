@@ -28,6 +28,8 @@ public class ReportFixedCostsSummaryFragment extends Fragment {
     TableLayout report_table;
     Integer current_flat_id;
 
+    TextView report_textview;
+
     RoommateRepository roomate_repo;
     BillRepository bill_repo;
 
@@ -52,6 +54,7 @@ public class ReportFixedCostsSummaryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_report_fixed_costs_summary, container, false);
 
         report_table = view.findViewById(R.id.report_table);
+        report_textview = view.findViewById(R.id.report_textview);
 
         try {
             loadTableData();
@@ -70,8 +73,18 @@ public class ReportFixedCostsSummaryFragment extends Fragment {
         List<Bill> currentFlatBills = getCurrentFlatBills();
         Integer number_of_bills = currentFlatBills.size();
 
-        if(number_of_roommates > -1 && number_of_bills > -1) {
+        if(number_of_roommates > 0 && number_of_bills > 0) {
             fillReportTable(number_of_roommates, currentflatRoommates, currentFlatBills);
+        } else {
+            if(number_of_roommates == 0 && number_of_bills == 0) {
+                report_textview.setText(R.string.report_zero_bills_and_roommates);
+            } else if(number_of_roommates == 0) {
+                report_textview.setText(R.string.report_zero_roommates);
+            } else {
+                report_textview.setText(R.string.report_zero_bills);
+            }
+
+            report_textview.setVisibility(View.VISIBLE);
         }
 
     }
@@ -80,12 +93,8 @@ public class ReportFixedCostsSummaryFragment extends Fragment {
         TableRow.LayoutParams llp = new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         llp.setMargins(0, 0, 0, 0);//2px right-margin
 
-        Float monthlyBillsSum = Float.valueOf("0");
-        Float yearlyBillsSum = Float.valueOf("0");
-
-        fillMonthlyAndYearlyBillsSum(monthlyBillsSum, yearlyBillsSum, currentFlatBills);
-
-
+        Float monthlyBillsSum = getMonthlyBillsSum(currentFlatBills);
+        Float yearlyBillsSum = getYearlyBillsSum(currentFlatBills);
 
         setHeaderRow(llp);
 
@@ -140,14 +149,24 @@ public class ReportFixedCostsSummaryFragment extends Fragment {
         setTotalRow(llp, monthlyBillsSum, yearlyBillsSum);
     }
 
-    private void fillMonthlyAndYearlyBillsSum(Float monthlyBillsSum, Float yearlyBillsSum, List<Bill> currentFlatBills) throws Exception {
+    private Float getYearlyBillsSum(List<Bill> currentFlatBills) {
+        float yearlBillsSum = 0;
+        for(Bill bill: currentFlatBills) {
+            if(!bill.isMonthly()) {
+                yearlBillsSum += bill.getValue();
+            }
+        }
+        return yearlBillsSum;
+    }
+
+    private Float getMonthlyBillsSum(List<Bill> currentFlatBills) {
+        float monthlyBillsSum = 0;
         for(Bill bill: currentFlatBills) {
             if(bill.isMonthly()) {
                 monthlyBillsSum += bill.getValue();
-            } else {
-                yearlyBillsSum += bill.getValue();
             }
         }
+        return monthlyBillsSum;
     }
 
     private List<Roommate> getCurrentFlatRoommates() throws Exception {

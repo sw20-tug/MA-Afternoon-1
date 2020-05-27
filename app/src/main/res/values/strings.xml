@@ -115,6 +115,9 @@
 
     <!-- Report -->
     <string name="report">report</string>
+    <string name="report_zero_bills_and_roommates">Number of roommates and bills is zero</string>
+    <string name="report_zero_roommates">Number of roommates is zero</string>
+    <string name="report_zero_bills">Number of bills is zero</string>
 
     <!-- General -->
     <string name="delete">Delete</string>
