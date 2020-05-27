@@ -16,14 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateFlatFormActivity">
-        </activity>
+        <activity android:name=".CreateFlatFormActivity"></activity>
         <activity android:name=".RoommatesActivity" />
         <activity android:name=".ShoppingListActivity" />
         <activity android:name=".CleaningScheduleActivity" />
         <activity android:name=".FlatListActivity" />
         <activity android:name=".FinancingFurnitureActivity" />
         <activity android:name=".BillsActivity" />
+        <activity android:name=".ReportActivity"></activity>
     </application>
 
 </manifest>
