@@ -107,6 +107,11 @@
     <string name="bill_list_energy_bill">Energy Bill</string>
     <string name="bill_list_internet_bill">Internet Bill</string>
     <string name="bill_list_tv_bill">TV Bill</string>
+    <string name="bill_list_detail_monthly">Monthly</string>
+    <string name="dialog_delete_bill">Are you sure you want to delete this bill?</string>
+    <string name="bill_detail_monthly">Monthly</string>
+    <string name="bill_detail_yearly">Yearly</string>
+
 
     <!-- General -->
     <string name="delete">Delete</string>

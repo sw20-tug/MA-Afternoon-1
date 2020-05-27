@@ -75,6 +75,7 @@ public class ShoppingListDetailFragment extends Fragment {
                         shoppingListRepo.update(updateShoppingList);
                     }
                 }
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 
