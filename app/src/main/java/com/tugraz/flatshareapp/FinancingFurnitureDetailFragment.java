@@ -36,7 +36,7 @@ public class FinancingFurnitureDetailFragment extends Fragment {
     List<Roommate> roomate_in_current_flat_list;
     List<Integer> checked_roommates;
     CheckBox current_roomate;
-    Integer current_flat_id = Persistence.Instance().getActiveFlatID();
+    Integer current_flat_id;
 
     FinancingFurnitureDetailFragment(List<Roommate> roomate_list, FinanceRepository finance_repo){
         this.roommate_list = roomate_list;
@@ -72,7 +72,7 @@ public class FinancingFurnitureDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        current_flat_id = Persistence.Instance().getActiveFlatID();
         View view = inflater.inflate(R.layout.fragment_financing_furniture_detail, null);
         linear_roomate_list = view.findViewById(R.id.linear_layout_financing_furniture_roommate_list);
         checked_roommates = new ArrayList<>();
@@ -106,6 +106,7 @@ public class FinancingFurnitureDetailFragment extends Fragment {
                 //Fetch the checked list
                 //error while adding the checked roommates to list
                 for(int i=0; i<linear_roomate_list.getChildCount(); i++){
+                    cur_id = null;
                     View view = linear_roomate_list.getChildAt(i);
                     if(view.findViewById(R.id.financing_furniture_template_roomate_id) != null) {
                         current_roomate_id = view.findViewById(R.id.financing_furniture_template_roomate_id);
@@ -126,7 +127,11 @@ public class FinancingFurnitureDetailFragment extends Fragment {
                     float indv_price = price / (float)checked_roommates.size();
 
                     for(int cur_roommate_id: checked_roommates)
+                    {
                         finance_repo.insert(new Finance(item_name.getText().toString(), indv_price,  cur_roommate_id, current_flat_id));
+                        System.out.println("INSERT");
+                    }
+
                     getActivity().getSupportFragmentManager().popBackStack();
                 }
             }

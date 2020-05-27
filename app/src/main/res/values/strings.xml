@@ -96,17 +96,17 @@
     <string name="cleaning_edit_close">Close</string>
 
     <!-- Financing furniture and equipment -->
-    <string name="financing_furniture_title">Individual finance</string>
+    <string name="financing_furniture_title">Individual Finance</string>
     <string name="financing_furniture_detail_item_name">Item</string>
     <string name="financing_furniture_detail_price">Price</string>
 
     <!-- Bills -->
-    <string name="bill_list_title">Monthly bills</string>
-    <string name="bill_list_rental_fee">Rental fee</string>
-    <string name="bill_list_smartphone_bill">Smartphone bill</string>
-    <string name="bill_list_energy_bill">Energy bill</string>
-    <string name="bill_list_internet_bill">Internet bill</string>
-    <string name="bill_list_tv_bill">TV bill</string>
+    <string name="bill_list_title">Monthly Bills</string>
+    <string name="bill_list_rental_fee">Rental Fee</string>
+    <string name="bill_list_smartphone_bill">Smartphone Bill</string>
+    <string name="bill_list_energy_bill">Energy Bill</string>
+    <string name="bill_list_internet_bill">Internet Bill</string>
+    <string name="bill_list_tv_bill">TV Bill</string>
 
     <!-- General -->
     <string name="delete">Delete</string>

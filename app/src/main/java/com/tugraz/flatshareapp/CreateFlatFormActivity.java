@@ -59,7 +59,7 @@ public class CreateFlatFormActivity extends AppCompatActivity {
                 String country = editCountry.getText().toString();
                 dbExecutor.insert(new Flat(flatName, streetName, streetNumber, city, country, true));
 
-                Date sometime = new Date();
+                /*Date sometime = new Date();
 
                 try {
                     Persistence.Instance().setActiveFlatID(Persistence.INITIAL_ID);
@@ -68,7 +68,7 @@ public class CreateFlatFormActivity extends AppCompatActivity {
                     Persistence.Instance().setActiveRoommateId(Persistence.INITIAL_ID);
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
 
                 finish();
             }

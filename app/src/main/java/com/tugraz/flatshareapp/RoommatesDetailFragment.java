@@ -99,7 +99,6 @@ public class RoommatesDetailFragment extends Fragment {
                    e.printStackTrace();
                }
                if(birthday_date != null || roommate_since_date != null) {
-                   //TODO: change faltID to the actual flatID
                    if(!edit && roommate == null)
                     roommate_repository.insert(new Roommate(first_name, last_name, birthday_date, roommate_since_date, Persistence.Instance().getActiveFlatID()));
                    else {
