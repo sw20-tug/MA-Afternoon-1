@@ -130,15 +130,6 @@ public class FlatListDetailFragment extends Fragment {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
-                    if(bill_repo != null) {
-                        //add bills for the new flat initialised to zero
-                        bill_repo.insert(new Bill("Rental fee", 0, true, flat_id));
-                        bill_repo.insert(new Bill("Smartphone bill", 0, true, flat_id));
-                        bill_repo.insert(new Bill("Internet bill", 0, true, flat_id));
-                        bill_repo.insert(new Bill("TV bill", 0, true, flat_id));
-                        bill_repo.insert(new Bill("Energy bill", 0, true, flat_id));
-                    }
                     created = true;
                 }
                 else
