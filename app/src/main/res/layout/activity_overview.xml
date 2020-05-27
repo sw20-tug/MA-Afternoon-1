@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".OverviewActivity">
 
+    <Button
+        android:id="@+id/btn_report"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:text="@string/report"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bill" />
+
     <TextView
         android:id="@+id/tv_flat_name"
         android:layout_width="120dp"
@@ -24,78 +34,63 @@
     <Button
         android:id="@+id/btn_room_mates"
         android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="136dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
         android:text="@string/room_mates"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name" />
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <Button
         android:id="@+id/btn_shopping_list"
         android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="196dp"
+        android:layout_height="45dp"
         android:text="@string/shopping_list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_room_mates" />
 
     <Button
         android:id="@+id/btn_organizeflat"
         android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="316dp"
+        android:layout_height="45dp"
         android:text="@string/organize_flat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cleaning_schedule" />
 
     <Button
         android:id="@+id/btn_cleaning_schedule"
         android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="256dp"
+        android:layout_height="45dp"
         android:text="@string/cleaning_schedule"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_shopping_list" />
 
     <Button
         android:id="@+id/btn_bill"
         android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="440dp"
+        android:layout_height="45dp"
         android:text="@string/bill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_financing" />
 
     <Button
         android:id="@+id/btn_financing"
         android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="376dp"
+        android:layout_height="45dp"
         android:text="@string/financing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name" />
-<!--<<<<<<< HEAD-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/btn_bill"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.504"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_flat_name"-->
-<!--        app:layout_constraintVertical_bias="0.983" />-->
-<!--=======-->
-
-<!--&gt;>>>>>> 35862b9f2f5d35099ee6f842d88855df85301886-->
+        app:layout_constraintTop_toBottomOf="@+id/btn_organizeflat" />
 
     <TextView
         android:id="@+id/tv_street_name_value"
@@ -236,6 +231,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="304dp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_country" />
 
     <!--    <Button-->
 <!--        android:id="@+id/btn_bill"-->

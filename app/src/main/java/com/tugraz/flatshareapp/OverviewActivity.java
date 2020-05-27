@@ -20,7 +20,7 @@ import java.util.List;
 
 public class OverviewActivity extends AppCompatActivity {
 
-    Button btn_room_mates, btn_shopping_list, btn_cleaning_schedule, btn_financing, btn_organize, btn_bills;
+    Button btn_room_mates, btn_shopping_list, btn_cleaning_schedule, btn_financing, btn_organize, btn_bills, btn_report;
     FlatRepository dbExecutor;
     TextView check;
     private static final String TAG = CreateFlatFormActivity.class.getSimpleName();
@@ -52,6 +52,7 @@ public class OverviewActivity extends AppCompatActivity {
         btn_financing = (Button) findViewById(R.id.btn_financing);
         btn_organize = (Button) findViewById(R.id.btn_organizeflat);
         btn_bills = (Button) findViewById(R.id.btn_bill);
+        btn_report = findViewById(R.id.btn_report);
 
         updateFlatData();
 
@@ -103,6 +104,16 @@ public class OverviewActivity extends AppCompatActivity {
                 switchActivity(BillsActivity.class);
             }
         });
+
+        btn_report.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                switchActivity(ReportActivity.class);
+            }
+        });
+
+
 
         try {
             List<Flat> flats = dbExecutor.getAllFlats();
