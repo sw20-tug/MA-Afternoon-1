@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent">
 
     <TextView
@@ -21,9 +21,8 @@
         android:id="@+id/button_bills_detail_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="80dp"
         android:text="@string/cleaning_edit_close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -52,16 +51,13 @@
 
 
     <Button
-        android:id="@+id/btn_financing_furniture_detail_save"
+        android:id="@+id/btn_bills_detail_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
-        android:layout_marginLeft="175dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginRight="148dp"
+        android:layout_marginTop="88dp"
         android:text="@string/roommates_detail_save"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_bills_detail_price_value" />
 
@@ -70,12 +66,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="174dp"
-        android:layout_marginRight="174dp"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_bills_detail_name" />
@@ -105,6 +99,37 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_bills_detail_price" />
+
+    <Button
+        android:id="@+id/btn_delete_bill_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="@string/delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_bills_detail_price_value" />
+
+    <Switch
+        android:id="@+id/swt_bills_detail_monthly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_bills_detail_price_value"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <TextView
+        android:id="@+id/text_bills_monthly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bill_list_detail_monthly"
+        app:layout_constraintBottom_toBottomOf="@+id/swt_bills_detail_monthly"
+        app:layout_constraintStart_toEndOf="@+id/swt_bills_detail_monthly"
+        app:layout_constraintTop_toTopOf="@+id/swt_bills_detail_monthly" />
 
     <!--    <ScrollView-->
     <!--        android:id="@+id/financing_furniture_scrollView1"-->
