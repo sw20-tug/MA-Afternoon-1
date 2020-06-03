@@ -54,5 +54,5 @@
     <string name="bill_list_tv_bill">Fernsehrechnung</string>
     <string name="dialog_delete_bill">Sind sie sich sicher, dass sie diese Rechnung löschen wollen?</string>
     <string name="bill_detail_yearly">Jährlich</string>
-    <string name="description">Bechreibung</string>
+    <string name="description">Beschreibung</string>
 </resources>
