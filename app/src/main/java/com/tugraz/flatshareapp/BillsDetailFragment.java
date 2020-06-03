@@ -81,7 +81,7 @@ public class BillsDetailFragment extends Fragment {
            bill_price_view.setText(Float.toString(bill.getValue()));
            if(bill.isMonthly())
            {
-               bill_monthly_text_view.setText(R.string.bill_detail_monthly);
+               bill_monthly_text_view.setText(R.string.monthly);
                bill_monthly_view.setChecked(false);
            }
            else {
@@ -128,7 +128,7 @@ public class BillsDetailFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(!isChecked)
-                    bill_monthly_text_view.setText(R.string.bill_detail_monthly);
+                    bill_monthly_text_view.setText(R.string.monthly);
                 else
                     bill_monthly_text_view.setText(R.string.bill_detail_yearly);
             }

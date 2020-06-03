@@ -78,7 +78,7 @@ public class CleaningEditFragment extends Fragment {
         if(task != null) {
             description.setText(task.getDescription());
             frequency_switch.setChecked(!task.isWeekly());
-            frequency_text.setText(task.isWeekly() ? R.string.cleaning_edit_date_frequency_weekly : R.string.cleaning_edit_date_frequency_monthly);
+            frequency_text.setText(task.isWeekly() ? R.string.cleaning_edit_date_frequency_weekly : R.string.monthly);
             done_switch.setChecked(task.isCompleted());
         }
 
@@ -130,7 +130,7 @@ public class CleaningEditFragment extends Fragment {
                     clean_repo.update(cleaning);
                 }
 
-                Toast.makeText(getActivity(), "Saved!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.saved, Toast.LENGTH_SHORT).show();
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
@@ -164,7 +164,7 @@ public class CleaningEditFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked)
-                    frequency_text.setText(R.string.cleaning_edit_date_frequency_monthly);
+                    frequency_text.setText(R.string.monthly);
                 else
                     frequency_text.setText(R.string.cleaning_edit_date_frequency_weekly);
             }

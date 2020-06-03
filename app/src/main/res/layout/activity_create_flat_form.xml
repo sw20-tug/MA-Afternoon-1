@@ -14,12 +14,12 @@
 
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/create_flat_street_name"
+        android:hint="@string/street_name"
+        android:importantForAutofill="no"
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editFlatName"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/editFlatName" />
 
     <EditText
         android:id="@+id/editCountry"
@@ -27,12 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/create_flat_country"
+        android:hint="@string/country"
+        android:importantForAutofill="no"
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCity"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/editCity" />
 
     <EditText
         android:id="@+id/editFlatName"
@@ -40,12 +40,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="@string/create_flat_name"
+        android:hint="@string/flat_name"
+        android:importantForAutofill="no"
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fillOutData"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/fillOutData" />
 
     <EditText
         android:id="@+id/editCity"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/create_flat_city"
+        android:hint="@string/city"
         android:importantForAutofill="no"
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/create_flat_street_number"
+        android:hint="@string/street_number"
         android:importantForAutofill="no"
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"

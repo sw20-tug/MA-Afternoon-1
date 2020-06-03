@@ -151,11 +151,11 @@ public class OverviewActivity extends AppCompatActivity {
             }
             if(is_empty)
             {
-                bill_repo.insert(new Bill("Rental fee", 0, true, Persistence.Instance().getActiveFlatID()));
-                bill_repo.insert(new Bill("Smartphone bill", 0, true, Persistence.Instance().getActiveFlatID()));
-                bill_repo.insert(new Bill("Internet bill", 0, true, Persistence.Instance().getActiveFlatID()));
-                bill_repo.insert(new Bill("TV bill", 0, true, Persistence.Instance().getActiveFlatID()));
-                bill_repo.insert(new Bill("Energy bill", 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill(getResources().getString(R.string.bill_list_rental_fee), 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill(getResources().getString(R.string.bill_list_smartphone_bill), 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill(getResources().getString(R.string.bill_list_internet_bill), 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill(getResources().getString(R.string.bill_list_tv_bill), 0, true, Persistence.Instance().getActiveFlatID()));
+                bill_repo.insert(new Bill(getResources().getString(R.string.bill_list_energy_bill), 0, true, Persistence.Instance().getActiveFlatID()));
             }
 
             for(Flat cFlat : dbExecutor.getAllFlats()){
