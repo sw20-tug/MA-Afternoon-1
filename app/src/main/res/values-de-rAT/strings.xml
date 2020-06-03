@@ -41,7 +41,7 @@
     <string name="cleaning_edit_title">Putzaufgabe</string>
     <string name="cleaning_edit_date_frequency">Häufigkeit</string>
     <string name="cleaning_edit_date_frequency_weekly">Wöchentlich</string>
-    <string name="description">Bechreibung</string>
+    <string name="description">Beschreibung</string>
     <string name="cleaning_edit_offset_title">Verschiebung</string>
     <string name="cleaning_edit_assigned">Zugeteilter Mitbewohner</string>
     <string name="financing_furniture_title">Individuelle Finanzen</string>
