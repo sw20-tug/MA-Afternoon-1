@@ -55,4 +55,11 @@
     <string name="dialog_delete_bill">Sind sie sich sicher, dass sie diese Rechnung löschen wollen?</string>
     <string name="bill_detail_yearly">Jährlich</string>
     <string name="description">Beschreibung</string>
+    <string name="report">Report</string>
+    <string name="report_zero_bills_and_roommates">Keine Mitbewohner oder Rechnungen</string>
+    <string name="report_zero_roommates">Keine Mitbewohner</string>
+    <string name="report_zero_bills">Keine Rechnungen</string>
+    <string name="report_switch_fixed_costs">Fixkosten</string>
+    <string name="report_switch_fixed_assests">Sachanlagen</string>
+    <string name="report_fixed_assets_sum">Summe</string>
 </resources>
