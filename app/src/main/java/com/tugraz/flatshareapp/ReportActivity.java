@@ -10,6 +10,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.tugraz.flatshareapp.database.BillRepository;
 import com.tugraz.flatshareapp.database.FinanceRepository;
@@ -27,6 +28,7 @@ public class ReportActivity extends AppCompatActivity {
     ReportFixedCostsSummaryFragment report_fixed_cost_summary_fragment;
     ReportFixedAssetListFragment report_fixed_asset_fragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class ReportActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         report_fixed_cost_summary_fragment = new ReportFixedCostsSummaryFragment(roomate_repo, bill_repo);
         report_fixed_asset_fragment = new ReportFixedAssetListFragment(finance_repo);
-//        report_constraint_layout = findViewById(R.id.report_constraint_layout);
+
 
         roomate_repo = new RoommateRepository(getApplication());
         bill_repo = new BillRepository(getApplication());
