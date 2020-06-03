@@ -290,7 +290,7 @@ public class CleaningScheduleActivity extends AppCompatActivity {
                     String flat_name = flat_repo.getAllFlats().get(Persistence.Instance().getActiveFlatID()).getName();
 
                     if(position == 0) {
-                        file_name = flat_name + "_all_cleaning";
+                        file_name = flat_name + R.string.cleaning_suffix_all;
 
                         for (Roommate mate : list_mate) {
                             if(mate.getFlatId() != Persistence.Instance().getActiveFlatID())
@@ -305,7 +305,7 @@ public class CleaningScheduleActivity extends AppCompatActivity {
                         int mate_id = ((CalendarExport)spinner_export.getSelectedItem()).id;
                         Roommate selected_mate = roommate_repo.get(mate_id);
 
-                        file_name = flat_name + "_" + selected_mate.getName() + "_" + selected_mate.getLastName() + "_cleaning" ;
+                        file_name = flat_name + "_" + selected_mate.getName() + "_" + selected_mate.getLastName() + R.string.cleaning_suffix ;
 
                         addEventToCal(mate_id);
                     }

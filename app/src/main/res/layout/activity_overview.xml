@@ -12,7 +12,7 @@
         android:layout_height="45dp"
         android:text="@string/report"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_bill" />
 
@@ -36,7 +36,7 @@
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
-        android:text="@string/room_mates"
+        android:text="@string/roommates"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cleaning_schedule" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_report" />
 
     <Button
         android:id="@+id/btn_cleaning_schedule"
@@ -90,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_organizeflat" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cleaning_schedule" />
 
     <TextView
         android:id="@+id/tv_street_name_value"
@@ -145,10 +145,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="318dp"
-        android:layout_marginRight="318dp"
         android:layout_marginBottom="576dp"
         android:text="@string/street_name"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -161,10 +159,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
         android:layout_marginTop="155dp"
         android:layout_marginEnd="370dp"
-        android:layout_marginRight="370dp"
         android:layout_marginBottom="557dp"
         android:text="@string/city"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -177,12 +173,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
         android:layout_marginTop="117dp"
         android:layout_marginEnd="303dp"
-        android:layout_marginRight="303dp"
         android:layout_marginBottom="595dp"
-        android:text="@string/stree_number"
+        android:text="@string/street_number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,10 +187,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
         android:layout_marginTop="175dp"
         android:layout_marginEnd="345dp"
-        android:layout_marginRight="345dp"
         android:layout_marginBottom="537dp"
         android:text="@string/country"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -129,7 +129,7 @@ public class FinancingFurnitureDetailFragment extends Fragment {
                     for(int cur_roommate_id: checked_roommates)
                     {
                         finance_repo.insert(new Finance(item_name.getText().toString(), indv_price,  cur_roommate_id, current_flat_id));
-                        System.out.println("INSERT");
+                        //System.out.println("INSERT");
                     }
 
                     getActivity().getSupportFragmentManager().popBackStack();

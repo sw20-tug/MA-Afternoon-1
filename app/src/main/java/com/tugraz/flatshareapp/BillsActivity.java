@@ -59,7 +59,7 @@ public class BillsActivity extends FragmentActivity {
                 });
                 TextView name = view.findViewById(R.id.bill_name);
                 TextView price = view.findViewById(R.id.bill_price);
-                name.setText(bill_inv.getDescription() + "(" + (bill_inv.isMonthly() ? getString(R.string.bill_detail_monthly) : getString(R.string.bill_detail_yearly)) + ")");
+                name.setText(bill_inv.getDescription() + " (" + (bill_inv.isMonthly() ? getString(R.string.monthly) : getString(R.string.bill_detail_yearly)) + ")");
                 price.setText(Float.toString(bill_inv.getValue()));
                 bills_list.addView(view);
 
