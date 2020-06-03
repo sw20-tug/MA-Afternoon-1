@@ -3,24 +3,26 @@ package com.tugraz.flatshareapp.database.Models;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity
 public class Cleaning {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
     private boolean weekly;
-    private int dayOffSet;
+    private long doneTimestamp;
     private String description;
     private boolean completed;
-    private int roomateId;
+    private int roommateId;
     private int flatId;
 
-    public Cleaning(boolean weekly, int dayOffSet, String description, boolean completed, int roomateId, int flatId) {
+    public Cleaning(boolean weekly, long doneTimestamp, String description, boolean completed, int roommateId, int flatId) {
         this.weekly = weekly;
-        this.dayOffSet = dayOffSet;
+        this.doneTimestamp = doneTimestamp;
         this.description = description;
         this.completed = completed;
-        this.roomateId = roomateId;
+        this.roommateId = roommateId;
         this.flatId = flatId;
     }
 
@@ -38,12 +40,12 @@ public class Cleaning {
         this.weekly = weekly;
     }
 
-    public int getDayOffSet() {
-        return dayOffSet;
+    public long getDoneTimestamp() {
+        return doneTimestamp;
     }
 
-    public void setDayOffSet(int dayOffSet) {
-        this.dayOffSet = dayOffSet;
+    public void setDoneTimestamp(long doneTimestamp) {
+        this.doneTimestamp = doneTimestamp;
     }
 
     public String getDescription() {
@@ -62,12 +64,12 @@ public class Cleaning {
         this.completed = completed;
     }
 
-    public int getRoomateId() {
-        return roomateId;
+    public int getRoommateId() {
+        return roommateId;
     }
 
-    public void setRoomateId(int roomateId) {
-        this.roomateId = roomateId;
+    public void setRoommateId(int roommateId) {
+        this.roommateId = roommateId;
     }
 
     public int getFlatId() {
