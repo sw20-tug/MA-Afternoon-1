@@ -8,8 +8,10 @@ import android.content.Intent;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.tugraz.flatshareapp.database.AppDatabase;
+import com.tugraz.flatshareapp.database.CleaningDao_Impl;
 import com.tugraz.flatshareapp.database.FlatDao;
 import com.tugraz.flatshareapp.database.RoommateDao;
+import com.tugraz.flatshareapp.database.ShoppingListDao;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,9 +30,19 @@ public class AppTest {
     FlatDao flatDao;
     RoommateDao roommateDao;
     Context appContext;
+    ShoppingListDao shoppingListDao;
+    CleaningDao_Impl cleaningDao;
+
+
 
     private OverviewActivityTest overviewActivityTest;
     private RoommatesActivityTest roommatesActivityTest;
+    private ShoppingListActivityTest shoppingListActivityTest;
+    private CleaningScheduleActivityTest cleaningScheduleActivityTest;
+    private OrganizeActivityTest organizeActivityTest;
+    private FinancingActivityTest financingActivityTest;
+    private BillsActivityTest billsActivityTest;
+    private ReportActivityTest reportActivityTest;
 
     private void checkFlatsEmptyAndFix() {
         if(flatDao.getAllFlats().isEmpty())
@@ -72,8 +84,15 @@ public class AppTest {
         this.flatDao = db.flatDao();
         this.roommateDao = db.roommateDao();
 
+
         overviewActivityTest = new OverviewActivityTest(flatDao);
         roommatesActivityTest = new RoommatesActivityTest();
+        shoppingListActivityTest = new ShoppingListActivityTest();
+        cleaningScheduleActivityTest = new CleaningScheduleActivityTest();
+        organizeActivityTest = new OrganizeActivityTest();
+        financingActivityTest = new FinancingActivityTest();
+        billsActivityTest = new BillsActivityTest();
+        reportActivityTest = new ReportActivityTest();
 
         // Context of the app under test.
         assertEquals("com.tugraz.flatshareapp", appContext.getPackageName());
@@ -107,4 +126,48 @@ public class AppTest {
         overviewActivityTest.clickRoommates();
         roommatesActivityTest.addRoommate();
     }
+
+    @Test
+    public void test_ShoppingListButton() {
+        checkFlatsEmptyAndFix();
+        overviewActivityTest.clickShoppingList();
+        shoppingListActivityTest.addShoppingListItem();
+    }
+
+    @Test
+    public void test_CleaningScheduleButton() {
+        checkFlatsEmptyAndFix();
+        overviewActivityTest.clickCleaningSchedule();
+        cleaningScheduleActivityTest.addCleaningTask();
+    }
+
+
+    @Test
+    public void test_OrganizeFlatButton() {
+        checkFlatsEmptyAndFix();
+        overviewActivityTest.clickOrganizeFlat();
+        organizeActivityTest.addOrganizeFlat();
+    }
+
+    @Test
+    public void test_FinancingFurnitureButton() {
+        checkFlatsEmptyAndFix();
+        overviewActivityTest.clickFinancial();
+        financingActivityTest.addFinancingItem();
+
+    }
+
+    @Test
+    public void test_BillsButton() {
+        checkFlatsEmptyAndFix();
+        overviewActivityTest.clickBill();
+        billsActivityTest.addBillItem();
+    }
+
+    /*@Test
+    public void test_ReportButton() {
+        checkFlatsEmptyAndFix();
+    }
+
+     */
 }
